@@ -1,0 +1,12 @@
+.grunt
+.lock-wscript
+
+node_modules
+dist/*
+*.css
+*.css.map
+*.idea
+*.html
+output
+
+tests/**/results
