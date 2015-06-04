@@ -259,7 +259,8 @@ module.exports = function(grunt) {
         'phantomcss:mobile.fat',
         'phantomcss:mobile.thin',
         'phantomcss:desktop.fat',
-        'phantomcss:desktop.thin'
+        'phantomcss:desktop.thin',
+        'clean'
     ])
 
 }
