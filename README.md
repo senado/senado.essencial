@@ -20,9 +20,9 @@ Para gerar os arquivos de distribuição, é necessário a instalação do grunt
 
 Os seguintes arquivos serão gerados:
 
-* *dist/fat.css*: folha de estilos para sites que não utilizam o bootstrap 3
-* *dist/this.css*: folha de estilos com apenas os componentes. Exige bootstrap 3 (testado com 3.3.4)
-* *dist/iso-8859-1/\*.html*, *dist/iso-8859-1/\*.html*: markup dos componentes separados por codificação.
+* **dist/fat.css**: folha de estilos para sites que não utilizam o bootstrap 3
+* **dist/this.css**: folha de estilos com apenas os componentes. Exige bootstrap 3 (testado com 3.3.4)
+* **dist/iso-8859-1/*.html**, **dist/iso-8859-1/*.html**: markup dos componentes separados por codificação.
 
 ## desenvolvimento
 Para executar o ambiente de desenvolvimento e compilar os arquivos .less e .jade automaticamente ao editá-los execute:
