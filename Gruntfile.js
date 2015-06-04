@@ -87,7 +87,7 @@ module.exports = function(grunt) {
                 map: true
             },
             essencial: {
-                src: 'output/essencial.fat.css'
+                src: ['output/essencial.fat.css', 'output/essencial.thin.css']
             }
         },
         cssmin: {
