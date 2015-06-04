@@ -7,12 +7,14 @@ html(lang='pt')
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         title Senado Federal
-        link(href='essencial.fat.css', rel='stylesheet')
+        //link(href='essencial.fat.css', rel='stylesheet')
+        link(href='../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+        link(href='essencial.thin.css', rel='stylesheet')
 
-    body(style='margin:0')
-        include jade/navglobal
-        include jade/portaltopo
-        include jade/footer
+    body
+        include jade/thin/navglobal
+        include jade/thin/portaltopo
+        include jade/thin/footer
 
         script(src='../node_modules/jquery/dist/jquery.min.js')
         script(src='../node_modules/bootstrap/dist/js/bootstrap.min.js')
