@@ -1,0 +1,20 @@
+doctype html
+
+html(lang='pt')
+
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title Senado Federal
+        link(href='../node_modules/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+        link(href='essencial.thin.css', rel='stylesheet')
+
+    body
+        include jade/thin/navglobal
+        include jade/thin/portaltopo
+        include jade/thin/footer
+
+        script(src='../node_modules/jquery/dist/jquery.min.js')
+        script(src='../node_modules/bootstrap/dist/js/bootstrap.min.js')
+        script(src='//localhost:35729/livereload.js')
