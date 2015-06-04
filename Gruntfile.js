@@ -17,20 +17,9 @@ module.exports = function(grunt) {
                     'output/essencial.thin.css': 'essencial.thin.less'
                 }
             },
-            'essencial.componentize': {
+            componentize: {
                 files: {
                     'output/essencial.fat.css': 'essencial.fat.less'
-                }
-            },
-            main: {
-                options: {
-                    sourceMap: true,
-                    sourceMapFilename: 'dist/main.css.map',
-                    sourceMapURL: 'main.css.map',
-                    sourceMapRootpath: '../'
-                },
-                files: {
-                    'dist/main.css': 'less/styles.less'
                 }
             }
         },
@@ -43,7 +32,7 @@ module.exports = function(grunt) {
                     'output/index.html': ['index.jade']
                 }
             },
-            'essencial.includes': {
+            includes: {
                 options: {
                     pretty: true,
                     data : {
@@ -56,67 +45,28 @@ module.exports = function(grunt) {
                     'dist/utf-8/portaltopo.html': ['jade/portaltopo.jade'],
                     'dist/utf-8/scripts.html': ['jade/scripts.jade']
                 }
-            },
-            main: {
-                options: {
-                    pretty: true
-                },
-                files: {
-                    'index.html': ['index.jade']
-                }
-
             }
         },
         watch: {
-            'styles.essencial': {
-                files: ['**/*.less'],
-                tasks: ['less:essencial', 'uncss:essencial', 'less:essencial.componentize'],
-                options: {
-                    spawn: false
-                }
-            },
-            'jade.essencial': {
-                files: ['**/*.jade'],
-                tasks: ['jade:essencial'],
-                options: {
-                    spawn: false
-                }
-            },
-
             styles: {
                 files: ['**/*.less'],
-                tasks: ['less:main'],
+                tasks: ['less:essencial', 'uncss:essencial', 'less:componentize'],
                 options: {
                     spawn: false
                 }
             },
             jade: {
                 files: ['**/*.jade'],
-                tasks: ['jade:main'],
+                tasks: ['jade:essencial'],
                 options: {
                     spawn: false
                 }
             },
-
             livereload: {
                 options: {
                     livereload: true
                 },
                 files: ['**/*.css', '**/*.html']
-            }
-        },
-        styledown: {
-            build: {
-                files: {
-                    'styleguide/index.html': ['**/less/**/*.less']
-                },
-                options: {
-                    css: 'dist/fat.css',
-                    config: 'styleguide/config.md',
-                    sg_css: 'styleguide/styledown.css',
-                    sg_js: 'styleguide/styledown.js',
-                    title: 'Senado.CSS'
-                }
             }
         },
         uncss: {
@@ -137,9 +87,6 @@ module.exports = function(grunt) {
             },
             essencial: {
                 src: 'output/essencial.fat.css'
-            },
-            main: {
-                src: 'dist/main.css'
             }
         },
         cssmin: {
@@ -178,7 +125,7 @@ module.exports = function(grunt) {
                     banner: '/*! <%= pkg.name %> v<%= pkg.version %>  | <%= pkg.repository %> */',
                 },
                 files: {
-                    src: ['dist/fat.css', 'dist/thin.css', 'dist/main.css']
+                    src: ['dist/fat.css', 'dist/thin.css']
                 }
             }
         },
@@ -202,8 +149,7 @@ module.exports = function(grunt) {
             options: {
                 logConcurrentOutput: true,
             },
-            essencial: ['watch:styles.essencial', 'watch:livereload', 'watch:jade.essencial'],
-            main: ['watch:styles', 'watch:livereload', 'watch:jade']
+            essencial: ['watch:styles', 'watch:livereload', 'watch:jade']
         },
         charset: {
             essencial : {
@@ -227,7 +173,7 @@ module.exports = function(grunt) {
             }
         },
         phantomcss: {
-            'essencial.desktop': {
+            desktop: {
                 options: {
                     screenshots: 'tests/desktop/screenshots/',
                     results: 'tests/desktop/results/',
@@ -235,7 +181,7 @@ module.exports = function(grunt) {
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
-            'essencial.mobile': {
+            mobile: {
                 options: {
                     screenshots: 'tests/mobile/screenshots/',
                     results: 'tests/mobile/results/',
@@ -250,7 +196,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-uncss')
     grunt.loadNpmTasks('grunt-banner')
     grunt.loadNpmTasks('grunt-charset')
-    grunt.loadNpmTasks('grunt-styledown')
     grunt.loadNpmTasks('grunt-concurrent')
     grunt.loadNpmTasks('grunt-phantomcss')
     grunt.loadNpmTasks('grunt-autoprefixer')
@@ -263,51 +208,39 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect')
     // endregion
 
-    grunt.registerTask('build.essencial', [
+    grunt.registerTask('build', [
         'jade:essencial',             // gera html
         'less:essencial',             // gera styles dos módulos essenciais
         'uncss:essencial',            // faz o uncss do fat.css
-        'less:essencial.componentize' // gera o arquivo no escopo sf-component
+        'less:componentize' // gera o arquivo no escopo sf-component
     ])
-    grunt.registerTask('server.essencial', [
+    grunt.registerTask('server', [
         'connect', 'concurrent:essencial'
     ])
-    grunt.registerTask('dev.essencial', [
-        'build.essencial', 'server.essencial'
+    grunt.registerTask('dev', [
+        'build', 'server'
     ])
-    grunt.registerTask('essencial', [
+    grunt.registerTask('default', [
         'clean:build',                    // limpar arquivos antigos
 
-        'build.essencial',                // gera html, styles, faz o uncss e componentiza
+        'build',                          // gera html, styles, faz o uncss e componentiza
         'autoprefixer:essencial',         // autoprefixa
         'cssUrlEmbed:essencial',          // embute a fonte
-
-        //'connect',                      // comparação de screenshots
-        //'phantomcss:essencial.mobile',
-        //'phantomcss:essencial.desktop',
 
         'cssmin:essencial',               // comprime o css gerado
         'usebanner:essencial',            // insere o banner nos arquivos css
 
-        'jade:essencial.includes',        // gera os html para inserção
+        'jade:includes',        // gera os html para inserção
         'charset',                        // gera cópia do include em iso-88959-1
 
         'clean:essencial'                 // limpar arquivos que não seja de distribuição
     ])
 
-    grunt.registerTask('build', [
-        'jade:main',
-        'less:main'
-    ])
-    grunt.registerTask('server', [
-        'connect', 'concurrent:main'
-    ])
-    grunt.registerTask('dev', [
-        'build', 'server'
-    ])
-
-    grunt.registerTask('default', [
-        'essencial', 'styledown'
+    grunt.registerTask('test', [
+        'build',
+        'connect',
+        'phantomcss:mobile',
+        'phantomcss:desktop'
     ])
 
 }
