@@ -52,6 +52,6 @@
   "dependencies": {
     "bootstrap": "^3.3.4",
     "jquery": "^2.1.4",
-    "senado.css": "git+https://github.com/fabianonunes/senado.css.git"
+    "senado.css": "git+https://github.com/fabianonunes/senado.css.git#develop"
   }
 }
