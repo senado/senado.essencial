@@ -1,6 +1,6 @@
 /* global casper, phantomcss */
 
-casper.start('http://localhost:8000/output/')
+casper.start('http://localhost:8000/output')
 .then(function() {
     this.mouse.click('.titulo-principal');
     phantomcss.screenshot('body', 'body')

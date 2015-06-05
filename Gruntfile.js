@@ -13,7 +13,11 @@ module.exports = function(grunt) {
                     sourceMapRootpath: '../'
                 },
                 files: {
-                    'output/styles.css': 'styles.less',
+                    'output/styles.css': 'styles.less'
+                }
+            },
+            thin: {
+                files: {
                     'output/essencial.thin.css': 'essencial.thin.less'
                 }
             },
@@ -51,7 +55,7 @@ module.exports = function(grunt) {
         watch: {
             styles: {
                 files: ['**/*.less'],
-                tasks: ['less:essencial', 'uncss:essencial', 'less:componentize'],
+                tasks: ['less:essencial', 'less:thin', 'uncss:essencial', 'less:componentize'],
                 options: {
                     spawn: false
                 }
@@ -176,32 +180,32 @@ module.exports = function(grunt) {
         phantomcss: {
             'desktop.fat': {
                 options: {
-                    screenshots: 'tests/desktop/screenshots/',
-                    results: 'tests/desktop/results.fat/',
+                    screenshots: 'tests/fat/desktop/screenshots/',
+                    results: 'tests/fat/desktop/results/',
                     viewportSize: [800, 800]
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
             'mobile.fat': {
                 options: {
-                    screenshots: 'tests/mobile/screenshots/',
-                    results: 'tests/mobile/results.fat/',
+                    screenshots: 'tests/fat/mobile/screenshots/',
+                    results: 'tests/fat/mobile/results/',
                     viewportSize: [320, 480]
                 },
                 src: [ 'tests/**/*mobile.js' ]
             },
             'desktop.thin': {
                 options: {
-                    screenshots: 'tests/desktop/screenshots/',
-                    results: 'tests/desktop/results.thin/',
+                    screenshots: 'tests/thin/desktop/screenshots/',
+                    results: 'tests/thin/desktop/results/',
                     viewportSize: [800, 800]
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
             'mobile.thin': {
                 options: {
-                    screenshots: 'tests/mobile/screenshots/',
-                    results: 'tests/mobile/results.thin/',
+                    screenshots: 'tests/thin/mobile/screenshots/',
+                    results: 'tests/thin/mobile/results/',
                     viewportSize: [320, 480]
                 },
                 src: [ 'tests/**/*mobile.js' ]
@@ -228,8 +232,9 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'jade:essencial',             // gera html
         'less:essencial',             // gera styles dos módulos essenciais
+        'less:thin',                  // gera styles dos módulos essenciais
         'uncss:essencial',            // faz o uncss do fat.css
-        'less:componentize' // gera o arquivo no escopo sf-component
+        'less:componentize'           // gera o arquivo no escopo sf-component
     ])
     grunt.registerTask('server', [
         'connect', 'concurrent:essencial'
@@ -247,7 +252,7 @@ module.exports = function(grunt) {
         'cssmin:essencial',               // comprime o css gerado
         'usebanner:essencial',            // insere o banner nos arquivos css
 
-        'jade:includes',        // gera os html para inserção
+        'jade:includes',                  // gera os html para inserção
         'charset',                        // gera cópia do include em iso-88959-1
 
         'clean:essencial'                 // limpar arquivos que não seja de distribuição
