@@ -108,13 +108,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        cssUrlEmbed: {
-            essencial: {
-                files: {
-                    'output/essencial.fat.css': ['output/essencial.fat.css']
-                }
-            }
-        },
         clean: {
             build: {
                 src: ['dist', 'output']
@@ -224,7 +217,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less')
     grunt.loadNpmTasks('grunt-contrib-watch')
     grunt.loadNpmTasks('grunt-contrib-clean')
-    grunt.loadNpmTasks('grunt-css-url-embed')
     grunt.loadNpmTasks('grunt-contrib-cssmin')
     grunt.loadNpmTasks('grunt-contrib-connect')
     // endregion
@@ -247,7 +239,6 @@ module.exports = function(grunt) {
 
         'build',                          // gera html, styles, faz o uncss e componentiza
         'autoprefixer:essencial',         // autoprefixa
-        'cssUrlEmbed:essencial',          // embute a fonte
 
         'cssmin:essencial',               // comprime o css gerado
         'usebanner:essencial',            // insere o banner nos arquivos css
