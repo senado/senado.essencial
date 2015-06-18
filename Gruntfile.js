@@ -48,7 +48,11 @@ module.exports = function(grunt) {
                     'dist/utf-8/navglobal.html': ['jade/navglobal.jade'],
                     'dist/utf-8/footer.html': ['jade/footer.jade'],
                     'dist/utf-8/portaltopo.html': ['jade/portaltopo.jade'],
-                    'dist/utf-8/scripts.html': ['jade/scripts.jade']
+                    'dist/utf-8/scripts.html': ['jade/scripts.jade'],
+                    'dist/thin/utf-8/navglobal.html': ['jade/thin/navglobal.jade'],
+                    'dist/thin/utf-8/footer.html': ['jade/thin/footer.jade'],
+                    'dist/thin/utf-8/portaltopo.html': ['jade/thin/portaltopo.jade'],
+                    'dist/thin/utf-8/scripts.html': ['jade/thin/scripts.jade']
                 }
             }
         },
