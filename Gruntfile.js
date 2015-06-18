@@ -45,14 +45,14 @@ module.exports = function(grunt) {
                     }
                 },
                 files: {
-                    'dist/utf-8/navglobal.html': ['jade/navglobal.jade'],
-                    'dist/utf-8/footer.html': ['jade/footer.jade'],
-                    'dist/utf-8/portaltopo.html': ['jade/portaltopo.jade'],
-                    'dist/utf-8/scripts.html': ['jade/scripts.jade'],
-                    'dist/thin/utf-8/navglobal.html': ['jade/thin/navglobal.jade'],
-                    'dist/thin/utf-8/footer.html': ['jade/thin/footer.jade'],
-                    'dist/thin/utf-8/portaltopo.html': ['jade/thin/portaltopo.jade'],
-                    'dist/thin/utf-8/scripts.html': ['jade/thin/scripts.jade']
+                    'dist/fat/navglobal.html': ['jade/navglobal.jade'],
+                    'dist/fat/footer.html': ['jade/footer.jade'],
+                    'dist/fat/portaltopo.html': ['jade/portaltopo.jade'],
+                    'dist/fat/scripts.html': ['jade/scripts.jade'],
+                    'dist/thin/navglobal.html': ['jade/thin/navglobal.jade'],
+                    'dist/thin/footer.html': ['jade/thin/footer.jade'],
+                    'dist/thin/portaltopo.html': ['jade/thin/portaltopo.jade'],
+                    'dist/thin/scripts.html': ['jade/thin/scripts.jade']
                 }
             }
         },
@@ -153,24 +153,21 @@ module.exports = function(grunt) {
             },
             essencial: ['watch:styles', 'watch:livereload', 'watch:jade']
         },
-        charset: {
-            essencial : {
-                options: {
-                    from: 'utf8',
-                    to: 'iso-8859-1',
-                },
+        he: {
+            options: {
+                useNamedReferences: true,
+                allowUnsafeSymbols: true
+            },
+            essencial: {
                 files: [{
-                    dest: 'dist/iso-8859-1/footer.html',
-                    src: 'dist/utf-8/footer.html'
-                }, {
-                    dest: 'dist/iso-8859-1/navglobal.html',
-                    src: 'dist/utf-8/navglobal.html'
-                }, {
-                    dest: 'dist/iso-8859-1/portaltopo.html',
-                    src: 'dist/utf-8/portaltopo.html'
-                }, {
-                    dest: 'dist/iso-8859-1/scripts.html',
-                    src: 'dist/utf-8/scripts.html'
+                    expand: true,
+                    src: 'output/*.html'
+                }]
+            },
+            includes: {
+                files: [{
+                    expand: true,
+                    src: 'dist/**/*.html'
                 }]
             }
         },
@@ -211,9 +208,9 @@ module.exports = function(grunt) {
     })
 
     // region loadNpmTasks
+    grunt.loadNpmTasks('grunt-he')
     grunt.loadNpmTasks('grunt-uncss')
     grunt.loadNpmTasks('grunt-banner')
-    grunt.loadNpmTasks('grunt-charset')
     grunt.loadNpmTasks('grunt-concurrent')
     grunt.loadNpmTasks('grunt-phantomcss')
     grunt.loadNpmTasks('grunt-autoprefixer')
@@ -227,6 +224,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'jade:essencial',             // gera html
+        'he:essencial',               // converte caracteres especiais em htmlentities
         'less:essencial',             // gera styles dos módulos essenciais
         'less:thin',                  // gera styles dos módulos essenciais
         'uncss:essencial',            // faz o uncss do fat.css
@@ -248,7 +246,7 @@ module.exports = function(grunt) {
         'usebanner:essencial',            // insere o banner nos arquivos css
 
         'jade:includes',                  // gera os html para inserção
-        'charset',                        // gera cópia do include em iso-88959-1
+        'he:includes',                    // converte caracteres especiais em htmlentities
 
         'clean:essencial'                 // limpar arquivos que não seja de distribuição
     ])
