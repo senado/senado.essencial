@@ -2,6 +2,7 @@
 
 casper.start('http://localhost:8000/output')
 .then(function() {
+    phantomcss.pathToTest = './';
     this.mouse.click('.titulo-principal');
 
     phantomcss.screenshot('.NavGlobal', 'topo global')
