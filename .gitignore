@@ -10,3 +10,5 @@ dist/*
 output
 
 tests/**/results*
+*.fail.png
+*.diff.png
