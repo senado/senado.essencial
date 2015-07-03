@@ -117,7 +117,7 @@ module.exports = function(grunt) {
                 src: ['dist', 'output']
             },
             essencial: {
-                src: ['output', 'tests/**/results*']
+                src: ['output', 'tests/**/*.diff.png', 'tests/**/*.fail.png']
             }
         },
         usebanner: {
