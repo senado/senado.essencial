@@ -48,6 +48,8 @@
 
 .glyphicon-menu-hamburger {
     &:before {
-        content: "\e236";
+		// No thin.css o hamburger será o justify, porque antes do twbs 3.3.4 não havia esse glyph.
+		// Já no fat.css, o e055 será uma duplicação do hamburger.
+        content: "\e055";
     }
 }
