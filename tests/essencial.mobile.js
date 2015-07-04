@@ -1,6 +1,6 @@
-/* global casper, phantomcss */
+/* global casper, phantomcss, phantom */
 
-casper.start('http://localhost:8000/output')
+casper.start(phantom.rootUrl)
 .then(function() {
     phantomcss.pathToTest = './';
     this.mouse.click('.titulo-principal');
@@ -8,7 +8,6 @@ casper.start('http://localhost:8000/output')
     phantomcss.screenshot('.NavGlobal', 'topo global')
     phantomcss.screenshot('.PortalTopo', 'topo portal')
     phantomcss.screenshot('.FooterMain', 'rodape global')
-    phantomcss.screenshot('#miolo', 'miolo')
 })
 .then(function() {
     this.mouse.click('.titulo-principal');
