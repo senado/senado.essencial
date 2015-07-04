@@ -52,6 +52,6 @@
     "bootstrap": "^3.3.4",
     "jquery": "^2.1.4",
     "phantomjs": "^1.9.17",
-    "senado.css": "git+https://github.com/fabianonunes/senado.css.git#1.4.1"
+    "senado.css": "git+https://github.com/fabianonunes/senado.css.git#1.5.0"
   }
 }
