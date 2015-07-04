@@ -6,3 +6,11 @@
 	background-image: url("data:image/gif;base64,R0lGODlhCgAMAIABALLAzv///yH5BAEAAAEALAAAAAAKAAwAAAIPhI+Zwe3/lJSw1omP3a0AADs=");
 	margin-right: 1px;
 }
+
+.glyphicon-menu-hamburger {
+    &:before {
+		// No thin.css o hamburger será o justify, porque antes do twbs 3.3.4 não havia esse glyph.
+		// Já no fat.css, o e055 será uma duplicação do hamburger.
+        content: "\e055";
+    }
+}
