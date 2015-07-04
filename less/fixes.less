@@ -1,0 +1,12 @@
+.FooterMain-endereco .hidden-xs {
+    // no bootstrap 3.0.* o hidden-xs é block!important
+    @media (min-width: @screen-xs-max) {
+        display: inline!important;
+    }
+
+}
+
+.FooterMain-list {
+    // o twbs 3.0.* utiliza um normalize.css que não remove a margem superior do dl
+    margin-top: 0;
+}
