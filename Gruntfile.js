@@ -117,14 +117,14 @@ module.exports = function(grunt) {
                 src: ['dist', 'output']
             },
             essencial: {
-                src: ['output', 'tests/**/results*']
+                src: ['output', 'tests/**/*.diff.png', 'tests/**/*.fail.png']
             }
         },
         usebanner: {
             essencial: {
                 options: {
                     position: 'top',
-                    banner: '/*! ⁔║ <%= pkg.name %> v<%= pkg.version %>  | <%= pkg.repository %> */',
+                    banner: '/*! <%= pkg.name %> v<%= pkg.version %>  | <%= pkg.repository %> */',
                 },
                 files: {
                     src: ['dist/fat.css', 'dist/thin.css']
@@ -176,7 +176,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/fat/desktop/screenshots/',
                     results: 'tests/fat/desktop/results/',
-                    viewportSize: [800, 800]
+                    viewportSize: [800, 800],
+                    rootUrl: 'http://localhost:8000/output'
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
@@ -184,7 +185,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/fat/mobile/screenshots/',
                     results: 'tests/fat/mobile/results/',
-                    viewportSize: [320, 480]
+                    viewportSize: [320, 480],
+                    rootUrl: 'http://localhost:8000/output'
                 },
                 src: [ 'tests/**/*mobile.js' ]
             },
@@ -192,7 +194,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/thin/desktop/screenshots/',
                     results: 'tests/thin/desktop/results/',
-                    viewportSize: [800, 800]
+                    viewportSize: [800, 800],
+                    rootUrl: 'http://localhost:8000/output/thin.html'
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
@@ -200,7 +203,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/thin/mobile/screenshots/',
                     results: 'tests/thin/mobile/results/',
-                    viewportSize: [320, 480]
+                    viewportSize: [320, 480],
+                    rootUrl: 'http://localhost:8000/output/thin.html'
                 },
                 src: [ 'tests/**/*mobile.js' ]
             }
@@ -252,6 +256,7 @@ module.exports = function(grunt) {
     ])
 
     grunt.registerTask('test', [
+        'clean',
         'build',
         'connect',
         'phantomcss:mobile.fat',

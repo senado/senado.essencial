@@ -1,0 +1,55 @@
+@font-face {
+	font-family: 'mini-glyphicon';
+	src: url('@{icon-font-path}mini-glyphicon.woff') format('woff'),
+	     url('@{icon-font-path}mini-glyphicon.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.glyphicon, [class^="glyphicon-"], [class*=" glyphicon-"] {
+	font-family: 'mini-glyphicon';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+    position: relative;
+    display: inline-block;
+    top: 1px;
+
+    font-size: 12px;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-search {
+	&::before {
+        content: "\e003";
+    }
+}
+.glyphicon-lock {
+	&::before {
+        content: "\e033";
+    }
+}
+.glyphicon-chevron-up {
+	&::before {
+        content: "\e113";
+    }
+}
+.glyphicon-earphone {
+	&::before {
+        content: "\e182";
+    }
+}
+
+.glyphicon-menu-hamburger {
+    &:before {
+		// No thin.css o hamburger será o justify, porque antes do twbs 3.3.4 não havia esse glyph.
+		// Já no fat.css, o e055 será uma duplicação do hamburger.
+        content: "\e055";
+    }
+}
