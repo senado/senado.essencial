@@ -10,3 +10,15 @@
     // o twbs 3.0.* utiliza um normalize.css que não remove a margem superior do dl
     margin-top: 0;
 }
+
+// originalmente, o senado.css utiliza as variáveis do bootstrap para personalizar alguns atributos dos
+// elementos. Considerando que aqui o bootstrap é utilizado cru, algumas alterações precisam ser feitas
+// diretamente nos elementos.
+
+.Nav--principal {
+    > ul.nav > li.open {
+        > a, > a:hover, > a:active, > a:focus {
+            background-color: #fff;
+        }
+    }
+}
