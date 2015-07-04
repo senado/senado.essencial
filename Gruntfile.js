@@ -124,7 +124,7 @@ module.exports = function(grunt) {
             essencial: {
                 options: {
                     position: 'top',
-                    banner: '/*! ⁔║ <%= pkg.name %> v<%= pkg.version %>  | <%= pkg.repository %> */',
+                    banner: '/*! <%= pkg.name %> v<%= pkg.version %>  | <%= pkg.repository %> */',
                 },
                 files: {
                     src: ['dist/fat.css', 'dist/thin.css']
