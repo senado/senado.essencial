@@ -18,12 +18,12 @@ module.exports = function(grunt) {
             },
             thin: {
                 files: {
-                    'output/essencial.thin.css': 'essencial.thin.less'
+                    'output/thin.css': 'thin.less'
                 }
             },
             componentize: {
                 files: {
-                    'output/essencial.fat.css': 'essencial.fat.less'
+                    'output/fat.css': 'fat.less'
                 }
             }
         },
@@ -45,6 +45,8 @@ module.exports = function(grunt) {
                     }
                 },
                 files: {
+                    'dist/fat.html': ['index.jade'],
+                    'dist/thin.html': ['thin.jade'],
                     'dist/fat/navglobal.html': ['jade/navglobal.jade'],
                     'dist/fat/footer.html': ['jade/footer.jade'],
                     'dist/fat/portaltopo.html': ['jade/portaltopo.jade'],
@@ -95,7 +97,7 @@ module.exports = function(grunt) {
                 map: true
             },
             essencial: {
-                src: ['output/essencial.fat.css', 'output/essencial.thin.css']
+                src: ['output/fat.css', 'output/thin.css']
             }
         },
         cssmin: {
@@ -107,8 +109,8 @@ module.exports = function(grunt) {
             },
             essencial: {
                 files: {
-                    'dist/fat.css' : 'output/essencial.fat.css',
-                    'dist/thin.css' : 'output/essencial.thin.css'
+                    'dist/fat.css' : 'output/fat.css',
+                    'dist/thin.css' : 'output/thin.css'
                 }
             }
         },
