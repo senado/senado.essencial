@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         watch: {
             styles: {
                 files: ['**/*.less'],
-                tasks: ['less:essencial', 'less:thin', 'uncss:essencial', 'less:componentize'],
+                tasks: ['less:essencial', 'less:thin', 'uncss:fat', 'less:componentize'],
                 options: {
                     spawn: false
                 }
@@ -164,9 +164,16 @@ module.exports = function(grunt) {
         copy: {
             fonts: {
                 files: [{
-                    expand: true, flatten: true, src: ['fonts/**'], dest: 'output/fonts', filter: 'isFile'
+                    expand: true, flatten: true, src: ['fonts/**'], dest: 'output/fonts'
                 }, {
-                    expand: true, flatten: true, src: ['fonts/**'], dest: 'dist/fonts', filter: 'isFile'
+                    expand: true, flatten: true, src: ['fonts/**'], dest: 'dist/fonts'
+                }],
+            },
+            html: {
+                files: [{
+                    expand: true, flatten: true, src: ['dist/fat/*.html'], dest: 'dist/fat/utf-8'
+                }, {
+                    expand: true, flatten: true, src: ['dist/thin/*.html'], dest: 'dist/thin/utf-8'
                 }],
             },
         },
@@ -184,7 +191,7 @@ module.exports = function(grunt) {
             includes: {
                 files: [{
                     expand: true,
-                    src: 'dist/**/*.html'
+                    src: 'dist/*/*.html'
                 }]
             }
         },
@@ -193,8 +200,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/fat/desktop/screenshots/',
                     results: 'tests/fat/desktop/results/',
-                    viewportSize: [800, 800],
-                    rootUrl: 'http://localhost:8000/output'
+                    viewportSize: [1200, 1200],
+                    rootUrl: 'http://localhost:8000/dist/fat.html'
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
@@ -203,7 +210,7 @@ module.exports = function(grunt) {
                     screenshots: 'tests/fat/mobile/screenshots/',
                     results: 'tests/fat/mobile/results/',
                     viewportSize: [320, 480],
-                    rootUrl: 'http://localhost:8000/output'
+                    rootUrl: 'http://localhost:8000/dist/fat.html'
                 },
                 src: [ 'tests/**/*mobile.js' ]
             },
@@ -211,8 +218,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/thin/desktop/screenshots/',
                     results: 'tests/thin/desktop/results/',
-                    viewportSize: [800, 800],
-                    rootUrl: 'http://localhost:8000/output/thin.html'
+                    viewportSize: [1200, 1200],
+                    rootUrl: 'http://localhost:8000/dist/thin.html'
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
@@ -221,7 +228,7 @@ module.exports = function(grunt) {
                     screenshots: 'tests/thin/mobile/screenshots/',
                     results: 'tests/thin/mobile/results/',
                     viewportSize: [320, 480],
-                    rootUrl: 'http://localhost:8000/output/thin.html'
+                    rootUrl: 'http://localhost:8000/dist/thin.html'
                 },
                 src: [ 'tests/**/*mobile.js' ]
             }
@@ -270,6 +277,7 @@ module.exports = function(grunt) {
         'usebanner:essencial',            // insere o banner nos arquivos css
 
         'jade:includes',                  // gera os html para inserção
+        'copy:html',                      // guarda os arquivos html em utf-8 antes da conversão em entities
         'he:includes',                    // converte caracteres especiais em htmlentities
 
         'clean:essencial'                 // limpar arquivos que não seja de distribuição
@@ -277,7 +285,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'clean',
-        'build',
+        'default',
         'connect',
         'phantomcss:mobile.fat',
         'phantomcss:mobile.thin',
