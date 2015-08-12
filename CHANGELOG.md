@@ -1,3 +1,8 @@
+# 1.7.2
+
+* Adicionar 0800 na última linha do rodapé
+
+
 # 1.7.1
 
 * Corrigir destino de alguns links do rodapé
