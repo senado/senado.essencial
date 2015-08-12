@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         watch: {
             styles: {
                 files: ['**/*.less'],
-                tasks: ['less:essencial', 'less:thin', 'uncss:essencial', 'less:componentize'],
+                tasks: ['less:essencial', 'less:thin', 'uncss:fat', 'less:componentize'],
                 options: {
                     spawn: false
                 }
@@ -81,13 +81,22 @@ module.exports = function(grunt) {
             }
         },
         uncss: {
-            essencial: {
+            fat: {
                 options : {
                     ignore: ['.collapse.in', '.collapsing', '.open'],
                     stylesheets: ['styles.css']
                 },
                 files: {
                     'output/uncss.css': ['output/index.html']
+                }
+            },
+            thin: {
+                options : {
+                    ignore: ['.collapse.in', '.collapsing', '.open'],
+                    stylesheets: ['thin.css']
+                },
+                files: {
+                    'output/thin.css': ['output/thin.html']
                 }
             }
         },
@@ -102,10 +111,7 @@ module.exports = function(grunt) {
         },
         cssmin: {
             options : {
-                keepSpecialComments: 0,
-                rebase: true,
-                target: './',
-                relativeTo: '../../'
+                keepSpecialComments: 0
             },
             essencial: {
                 files: {
@@ -155,6 +161,22 @@ module.exports = function(grunt) {
             },
             essencial: ['watch:styles', 'watch:livereload', 'watch:jade']
         },
+        copy: {
+            fonts: {
+                files: [{
+                    expand: true, flatten: true, src: ['fonts/**'], dest: 'output/fonts'
+                }, {
+                    expand: true, flatten: true, src: ['fonts/**'], dest: 'dist/fonts'
+                }],
+            },
+            html: {
+                files: [{
+                    expand: true, flatten: true, src: ['dist/fat/*.html'], dest: 'dist/fat/utf-8'
+                }, {
+                    expand: true, flatten: true, src: ['dist/thin/*.html'], dest: 'dist/thin/utf-8'
+                }],
+            },
+        },
         he: {
             options: {
                 useNamedReferences: true,
@@ -169,7 +191,7 @@ module.exports = function(grunt) {
             includes: {
                 files: [{
                     expand: true,
-                    src: 'dist/**/*.html'
+                    src: 'dist/*/*.html'
                 }]
             }
         },
@@ -178,8 +200,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/fat/desktop/screenshots/',
                     results: 'tests/fat/desktop/results/',
-                    viewportSize: [800, 800],
-                    rootUrl: 'http://localhost:8000/output'
+                    viewportSize: [1200, 1200],
+                    rootUrl: 'http://localhost:8000/dist/fat.html'
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
@@ -188,7 +210,7 @@ module.exports = function(grunt) {
                     screenshots: 'tests/fat/mobile/screenshots/',
                     results: 'tests/fat/mobile/results/',
                     viewportSize: [320, 480],
-                    rootUrl: 'http://localhost:8000/output'
+                    rootUrl: 'http://localhost:8000/dist/fat.html'
                 },
                 src: [ 'tests/**/*mobile.js' ]
             },
@@ -196,8 +218,8 @@ module.exports = function(grunt) {
                 options: {
                     screenshots: 'tests/thin/desktop/screenshots/',
                     results: 'tests/thin/desktop/results/',
-                    viewportSize: [800, 800],
-                    rootUrl: 'http://localhost:8000/output/thin.html'
+                    viewportSize: [1200, 1200],
+                    rootUrl: 'http://localhost:8000/dist/thin.html'
                 },
                 src: [ 'tests/**/*desktop.js' ]
             },
@@ -206,7 +228,7 @@ module.exports = function(grunt) {
                     screenshots: 'tests/thin/mobile/screenshots/',
                     results: 'tests/thin/mobile/results/',
                     viewportSize: [320, 480],
-                    rootUrl: 'http://localhost:8000/output/thin.html'
+                    rootUrl: 'http://localhost:8000/dist/thin.html'
                 },
                 src: [ 'tests/**/*mobile.js' ]
             }
@@ -220,6 +242,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent')
     grunt.loadNpmTasks('grunt-phantomcss')
     grunt.loadNpmTasks('grunt-autoprefixer')
+    grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-jade')
     grunt.loadNpmTasks('grunt-contrib-less')
     grunt.loadNpmTasks('grunt-contrib-watch')
@@ -233,7 +256,9 @@ module.exports = function(grunt) {
         'he:essencial',               // converte caracteres especiais em htmlentities
         'less:essencial',             // gera styles dos módulos essenciais
         'less:thin',                  // gera styles dos módulos essenciais
-        'uncss:essencial',            // faz o uncss do fat.css
+        'uncss:fat',                  // faz o uncss do fat.css
+        'uncss:thin',                 // faz o uncss do thin.css
+        'copy:fonts',                 // copia as fontes para o dist
         'less:componentize'           // gera o arquivo no escopo sf-component
     ])
     grunt.registerTask('server', [
@@ -252,6 +277,7 @@ module.exports = function(grunt) {
         'usebanner:essencial',            // insere o banner nos arquivos css
 
         'jade:includes',                  // gera os html para inserção
+        'copy:html',                      // guarda os arquivos html em utf-8 antes da conversão em entities
         'he:includes',                    // converte caracteres especiais em htmlentities
 
         'clean:essencial'                 // limpar arquivos que não seja de distribuição
@@ -259,7 +285,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'clean',
-        'build',
+        'default',
         'connect',
         'phantomcss:mobile.fat',
         'phantomcss:mobile.thin',
