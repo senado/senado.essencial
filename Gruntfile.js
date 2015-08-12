@@ -81,13 +81,22 @@ module.exports = function(grunt) {
             }
         },
         uncss: {
-            essencial: {
+            fat: {
                 options : {
                     ignore: ['.collapse.in', '.collapsing', '.open'],
                     stylesheets: ['styles.css']
                 },
                 files: {
                     'output/uncss.css': ['output/index.html']
+                }
+            },
+            thin: {
+                options : {
+                    ignore: ['.collapse.in', '.collapsing', '.open'],
+                    stylesheets: ['thin.css']
+                },
+                files: {
+                    'output/thin.css': ['output/thin.html']
                 }
             }
         },
@@ -102,10 +111,7 @@ module.exports = function(grunt) {
         },
         cssmin: {
             options : {
-                keepSpecialComments: 0,
-                rebase: true,
-                target: './',
-                relativeTo: '../../'
+                keepSpecialComments: 0
             },
             essencial: {
                 files: {
@@ -154,6 +160,15 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true,
             },
             essencial: ['watch:styles', 'watch:livereload', 'watch:jade']
+        },
+        copy: {
+            fonts: {
+                files: [{
+                    expand: true, flatten: true, src: ['fonts/**'], dest: 'output/fonts', filter: 'isFile'
+                }, {
+                    expand: true, flatten: true, src: ['fonts/**'], dest: 'dist/fonts', filter: 'isFile'
+                }],
+            },
         },
         he: {
             options: {
@@ -220,6 +235,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-concurrent')
     grunt.loadNpmTasks('grunt-phantomcss')
     grunt.loadNpmTasks('grunt-autoprefixer')
+    grunt.loadNpmTasks('grunt-contrib-copy')
     grunt.loadNpmTasks('grunt-contrib-jade')
     grunt.loadNpmTasks('grunt-contrib-less')
     grunt.loadNpmTasks('grunt-contrib-watch')
@@ -233,7 +249,9 @@ module.exports = function(grunt) {
         'he:essencial',               // converte caracteres especiais em htmlentities
         'less:essencial',             // gera styles dos módulos essenciais
         'less:thin',                  // gera styles dos módulos essenciais
-        'uncss:essencial',            // faz o uncss do fat.css
+        'uncss:fat',                  // faz o uncss do fat.css
+        'uncss:thin',                 // faz o uncss do thin.css
+        'copy:fonts',                 // copia as fontes para o dist
         'less:componentize'           // gera o arquivo no escopo sf-component
     ])
     grunt.registerTask('server', [
