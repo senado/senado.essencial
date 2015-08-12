@@ -1,3 +1,8 @@
+# 1.7.3
+
+# Atualizar testes
+
+
 # 1.7.2
 
 * Adicionar 0800 na última linha do rodapé
