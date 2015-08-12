@@ -5,10 +5,11 @@
 
         .PortalTopo-id.PortalTopo-id--wide
             .PortalTopo-title
-                | Portal Legislação
+                | Título da página
 
         .PortalTopo-togglers.visible-xs
             .PortalTopo-toggler--menu(data-toggle='collapse', data-target='.Nav--principal')
+                .Icon.Icon--menu.Icon--md
 
         .clearfix
 
@@ -19,9 +20,7 @@
             li: a(href='#') Constituição Federal
             li: a(href='#') Legislação Federal
             li: a(href='#') Regimento Interno
-            //- os dropdowns precisam ficar aberto no momento de gerar o uncss e
-            //- fechado na hora do build
-            li.dropdown(class=(dist ? '' : 'open'))
+            li.dropdown
                 a.dropdown-toggle(href='#', data-toggle='dropdown')
                     = 'Consulte '
                     span.caret
