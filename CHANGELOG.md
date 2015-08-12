@@ -1,3 +1,8 @@
+# 1.7.1
+
+* Corrigir destino de alguns links do rodapé
+
+
 # 1.7.0
 
 ## Markup
