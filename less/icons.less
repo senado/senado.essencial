@@ -1,16 +1,11 @@
-.Icon--hamburger {
-	display: inline-block;
-	width: 10px;
-	height: 12px;
-	vertical-align: middle;
-	background-image: url("data:image/gif;base64,R0lGODlhCgAMAIABALLAzv///yH5BAEAAAEALAAAAAAKAAwAAAIPhI+Zwe3/lJSw1omP3a0AADs=");
-	margin-right: 1px;
+@font-face {
+	font-family: 'essencial';
+	src:url('@{icon-font-path}essencial.woff?-YzAwuvYj') format('woff'),
+		url('@{icon-font-path}essencial.ttf?-YzAwuvYj') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.glyphicon-menu-hamburger {
-    &:before {
-		// No thin.css o hamburger será o justify, porque antes do twbs 3.3.4 não havia esse glyph.
-		// Já no fat.css, o e055 será uma duplicação do hamburger.
-        content: "\e055";
-    }
+.Icon {
+	font-family: 'essencial';
 }
