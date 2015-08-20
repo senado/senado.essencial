@@ -1,3 +1,8 @@
+# 1.8.1
+
+* Atualizar portais no rodapé
+
+
 # 1.8.0
 
 * Alinhar texto à esquerda nos sf-component
