@@ -283,7 +283,8 @@ module.exports = function(grunt) {
         'copy:html',                      // guarda os arquivos html em utf-8 antes da conversão em entities
         'he:includes',                    // converte caracteres especiais em htmlentities
 
-        'clean'                           // limpar arquivos que não seja de distribuição
+        'clean:essencial',                // limpar arquivos que não seja de distribuição
+        'clean:tests'                     // limpar arquivos de testes
     ])
 
     grunt.registerTask('test', [
