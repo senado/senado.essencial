@@ -1,6 +1,14 @@
+# 1.8.0
+
+* Alinhar texto à esquerda nos sf-component
+* Separar trechos jade em comum
+* Compatibilizar testes
+* Arrumar texto do rodapé e não ocultar o texto Senado Federal no xs
+
+
 # 1.7.3
 
-# Atualizar testes
+* Atualizar testes
 
 
 # 1.7.2
