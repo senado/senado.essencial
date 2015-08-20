@@ -125,7 +125,10 @@ module.exports = function(grunt) {
                 src: ['dist', 'output']
             },
             essencial: {
-                src: ['output', 'tests/**/*.diff.png', 'tests/**/*.fail.png']
+                src: ['output']
+            },
+            tests: {
+                src: ['tests/**/*.diff.png', 'tests/**/*.fail.png']
             }
         },
         usebanner: {
@@ -280,7 +283,7 @@ module.exports = function(grunt) {
         'copy:html',                      // guarda os arquivos html em utf-8 antes da conversão em entities
         'he:includes',                    // converte caracteres especiais em htmlentities
 
-        'clean:essencial'                 // limpar arquivos que não seja de distribuição
+        'clean'                           // limpar arquivos que não seja de distribuição
     ])
 
     grunt.registerTask('test', [
