@@ -1,6 +1,6 @@
 {
   "name": "senado.essencial",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "repository": "http://git.io/senado.essencial",
   "license": "MIT",
   "devDependencies": {
