@@ -1,3 +1,18 @@
+# 1.8.4
+
+* Link do blog e correção da procuradoria
+
+
+# 1.8.3
+
+* Corrigir links do topo e rodapé
+
+
+# 1.8.2
+
+* Corrigir links do topo e rodapé
+
+
 # 1.8.1
 
 * Atualizar portais no rodapé
