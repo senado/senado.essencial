@@ -34,6 +34,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'output/index.html': ['index.jade'],
+                    'output/simples.html': ['simples.jade'],
                     'output/thin.html': ['thin.jade']
                 }
             },
