@@ -48,6 +48,7 @@ module.exports = function(grunt) {
                 files: {
                     'dist/fat.html': ['index.jade'],
                     'dist/thin.html': ['thin.jade'],
+                    'dist/simples.html': ['simples.jade'],
                     'dist/fat/navglobal.html': ['jade/navglobal.jade'],
                     'dist/fat/footer.html': ['jade/footer.jade'],
                     'dist/fat/portaltopo.html': ['jade/portaltopo.jade'],
