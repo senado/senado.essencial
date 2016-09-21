@@ -8,12 +8,12 @@ html(lang='pt')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
         title Senado Federal
-        link(href='fat.css', rel='stylesheet')
+        link(href='//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css', rel='stylesheet')
 
-    body(style='margin:0')
-        include jade/navglobal
-        include jade/portaltopo-simples
-        include jade/footer
+    body
+        include ../jade/thin/navglobal
+        include ../jade/thin/portaltopo
+        include ../jade/thin/footer
 
         script(src='../node_modules/jquery/dist/jquery.min.js')
         script(src='../node_modules/bootstrap/dist/js/bootstrap.min.js')

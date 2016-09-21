@@ -3,7 +3,20 @@
   "version": "1.8.5",
   "repository": "http://git.io/senado.essencial",
   "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
+    "start": "superstatic build -p 8080 --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
+    "prestart": "npm run build",
+    "build": "cross-env NODE_ENV=production webpack -p --progress",
+    "prebuild": "mkdirp build",
+    "test": "eslint src tests/**/*.js"
+  },  
   "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "cross-env": "^2.0.1",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-banner": "^0.6.0",
@@ -17,7 +30,26 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-he": "^0.1.0",
     "grunt-phantomcss": "https://github.com/micahgodbolt/grunt-phantomcss.git#f675d4bf",
-    "grunt-uncss": "^0.6.1"
+    "grunt-uncss": "^0.6.1",
+    "html-webpack-plugin": "^2.22.0",
+    "jade-loader": "^0.8.0",
+    "json-loader": "^0.5.4",
+    "less-loader": "^2.2.3",
+    "raw-loader": "^0.5.1",
+    "superstatic": "^4.0.3",
+    "webpack": "^1.13.2",
+    "eslint": "^3.5.0",
+    "eslint-plugin-react": "^6.3.0",
+    "happypack": "^2.2.1",
+    "less": "^2.7.1",
+    "mkdirp": "^0.5.1",
+    "postcss-loader": "^0.13.0",
+    "script-loader": "^0.7.0",
+    "source-map-loader": "^0.1.5",
+    "stylelint": "^7.3.1",
+    "stylelint-config-standard": "^13.0.0",
+    "url-loader": "^0.5.7",
+    "webpack-dev-server": "^1.16.1"
   },
   "jshintConfig": {
     "bitwise": true,
@@ -53,6 +85,7 @@
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.0",
     "phantomjs": "^1.9.17",
+    "purifycss-webpack-plugin": "^2.0.3",
     "senado.css": "git+https://github.com/fabianonunes/senado.css.git#1.6.1"
   }
 }

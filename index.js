@@ -1,0 +1,1 @@
+require('./thin.less')
