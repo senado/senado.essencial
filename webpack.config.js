@@ -1,6 +1,5 @@
 var webpack = require('webpack')
 var Extractor = require('extract-text-webpack-plugin')
-var Purify = require('purifycss-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var autoprefixer = require('autoprefixer')
 
@@ -59,15 +58,7 @@ module.exports = {
     })
   ]).concat(ENV === 'production' ? [
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new Purify({
-      basePath: __dirname,
-      resolveExtensions: ['.html'],
-      paths: [ 'build/*.html' ],
-      purifyOptions: {
-        minify: true
-      }
-    })
+    new webpack.optimize.OccurenceOrderPlugin()
   ] : []),
 
   stats: { colors: true },
