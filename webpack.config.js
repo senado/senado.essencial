@@ -24,32 +24,20 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less']
+    extensions: ['', '.js', '.json', '.less']
   },
 
   module: {
-    loaders: [
-      {
-        test: /\.(less|css)$/,
-        loader: Extractor.extract('css?sourceMap!postcss!less?sourceMap')
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.(xml|html|txt)$/,
-        loader: 'raw'
-      },
-      {
-        test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
-        loader: 'file-loader?name=assets/fonts/[name]_[hash:base64:5].[ext]'
-      },
-      {
-        test: /\.jade$/,
-        loader: 'jade'
-      }
-    ]
+    loaders: [{
+      test: /\.(less|css)$/,
+      loader: Extractor.extract('style', 'css?sourceMap!postcss!less?sourceMap')
+    }, {
+      test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
+      loader: 'file-loader?name=assets/fonts/[name]_[hash:base64:5].[ext]'
+    }, {
+      test: /\.jade$/,
+      loader: 'jade'
+    }]
   },
 
   postcss: () => [
@@ -71,21 +59,18 @@ module.exports = {
       template: './templates/thin.jade',
       chunks: ['thin'],
       filename: 'thin.html'
-    }),
+    })
+  ]).concat(ENV === 'production' ? [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new Purify({
       basePath: __dirname,
       resolveExtensions: ['.html'],
-      paths: [
-        'build/fat.html',
-        'build/thin.html'
-      ],
+      paths: [ 'build/*.html' ],
       purifyOptions: {
         minify: true
       }
     })
-  ]).concat(ENV === 'production' ? [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin()
   ] : []),
 
   stats: { colors: true },
