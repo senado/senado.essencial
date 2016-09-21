@@ -4,32 +4,27 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uncss: {
+      options: {
+        ignore: ['.collapse.in', '.collapsing', '.open']
+      },
       fat: {
         options: {
-          ignore: ['.collapse.in', '.collapsing', '.open'],
-          stylesheets: ['styles.css']
+          stylesheets: ['fat.css']
         },
         files: {
-          'output/uncss.css': ['output/index.html']
+          'build/fat.css': ['build/fat.html']
         }
       },
       thin: {
         options: {
-          ignore: ['.collapse.in', '.collapsing', '.open'],
           stylesheets: ['thin.css']
         },
         files: {
-          'output/thin.css': ['output/thin.html']
+          'build/thin.css': ['build/thin.html']
         }
       }
     },
     clean: {
-      build: {
-        src: ['dist', 'output']
-      },
-      essencial: {
-        src: ['output']
-      },
       tests: {
         src: ['tests/**/*.diff.png', 'tests/**/*.fail.png']
       }
@@ -41,17 +36,8 @@ module.exports = function (grunt) {
           banner: '/*! <%= pkg.name %> v<%= pkg.version %>  | <%= pkg.repository %> */'
         },
         files: {
-          src: ['dist/fat.css', 'dist/thin.css']
+          src: ['build/fat.css', 'build/thin.css']
         }
-      }
-    },
-    copy: {
-      html: {
-        files: [{
-          expand: true, flatten: true, src: ['dist/fat/*.html'], dest: 'dist/fat/utf-8'
-        }, {
-          expand: true, flatten: true, src: ['dist/thin/*.html'], dest: 'dist/thin/utf-8'
-        }]
       }
     },
     he: {
@@ -62,13 +48,7 @@ module.exports = function (grunt) {
       essencial: {
         files: [{
           expand: true,
-          src: 'output/*.html'
-        }]
-      },
-      includes: {
-        files: [{
-          expand: true,
-          src: 'dist/*/*.html'
+          src: 'build/*.html'
         }]
       }
     },
@@ -121,22 +101,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean')
   // endregion
 
-  grunt.registerTask('build', [
-    'he:essencial', // converte caracteres especiais em htmlentities
+  grunt.registerTask('default', [
+    'he', // converte caracteres especiais em htmlentities
     'uncss:fat', // faz o uncss do fat.css
     'uncss:thin', // faz o uncss do thin.css
     'less:componentize' // gera o arquivo no escopo sf-component
-  ])
-
-  grunt.registerTask('default', [
-    'clean:build', // limpar arquivos antigos
-    'build', // gera html, styles, faz o uncss e componentiza
-    'usebanner:essencial', // insere o banner nos arquivos css
-    'copy:html', // guarda os arquivos html em utf-8 antes da conversão em entities
-    'he:includes', // converte caracteres especiais em htmlentities
-
-    'clean:essencial', // limpar arquivos que não seja de distribuição
-    'clean:tests' // limpar arquivos de testes
   ])
 
   grunt.registerTask('test', [
