@@ -10,17 +10,14 @@ module.exports = {
 
   entry: {
     thin: './thin.less',
-    fat: './fat.less'
+    fat: './fat.less',
+    vendors: './vendors.js'
   },
 
   output: {
     path: './build',
     publicPath: '/',
     filename: '[name].js'
-  },
-
-  externals: {
-    jquery: 'jQuery'
   },
 
   resolve: {
@@ -33,7 +30,7 @@ module.exports = {
       loader: Extractor.extract('style', 'css?sourceMap!postcss!less?sourceMap')
     }, {
       test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
-      loader: 'file-loader?name=assets/fonts/[name]_[hash:base64:5].[ext]'
+      loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]'
     }, {
       test: /\.jade$/,
       loader: 'jade'
@@ -46,18 +43,18 @@ module.exports = {
 
   plugins: ([
     new webpack.NoErrorsPlugin(),
-    new Extractor('[name].css'),
+    new Extractor('[name].css', { allChunks: false }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
     new HtmlWebpackPlugin({
       template: './templates/fat.jade',
-      chunks: ['fat'],
+      excludeChunks: ['thin'],
       filename: 'fat.html'
     }),
     new HtmlWebpackPlugin({
       template: './templates/thin.jade',
-      chunks: ['thin'],
+      excludeChunks: ['fat'],
       filename: 'thin.html'
     })
   ]).concat(ENV === 'production' ? [
