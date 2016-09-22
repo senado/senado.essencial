@@ -2,15 +2,16 @@ var webpack = require('webpack')
 var Extractor = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var autoprefixer = require('autoprefixer')
+var uncss = require('postcss-uncss')
 
 const ENV = process.env.NODE_ENV || 'development'
 
 module.exports = {
 
   entry: {
-    thin: './thin.less',
-    fat: './fat.less',
-    vendors: './vendors.js'
+    thin: './src/less/thin',
+    fat: './src/less/fat',
+    vendors: './src/vendors'
   },
 
   output: {
@@ -26,7 +27,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.(less|css)$/,
-      loader: Extractor.extract('style', 'css?sourceMap!postcss!less?sourceMap')
+      loader: Extractor.extract('css?sourceMap!postcss!less?sourceMap')
     }, {
       test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
       loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]'
@@ -37,7 +38,8 @@ module.exports = {
   },
 
   postcss: () => [
-    autoprefixer({ browsers: 'last 2 versions' })
+    autoprefixer({ browsers: 'last 2 versions' }),
+    // uncss({ html: ['build/fat.html'] })
   ],
 
   plugins: ([
@@ -47,12 +49,12 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
     new HtmlWebpackPlugin({
-      template: './templates/fat.jade',
+      template: './src/fat.jade',
       excludeChunks: ['thin'],
       filename: 'fat.html'
     }),
     new HtmlWebpackPlugin({
-      template: './templates/thin.jade',
+      template: './src/thin.jade',
       excludeChunks: ['fat'],
       filename: 'thin.html'
     })
