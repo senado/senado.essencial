@@ -1,17 +1,18 @@
-// Variáveis
 @bootstrap-path: "~bootstrap/less";
 @senado-path: "~senado.css/less";
 
-// Libs
-@import "less/bootstrap";
-@import "less/senado";
+// external
+@import "vendors/bootstrap";
+@import "vendors/senado";
 
-// // Componentes adicionais do módulo essencial.
-@import "less/namespace";
-@import "less/typo";
-@import "less/config";
-@import "less/glyphicons";
-@import "less/icons";
+// utils
+@import "utils/namespace";
+@import "utils/variables";
 
-// Variáveis
-@icon-font-path: '../../fonts/';
+// base
+@import "base/typography";
+
+// components
+@import "components/glyphicons";
+@import "components/icons";
+
