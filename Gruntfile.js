@@ -44,6 +44,9 @@ module.exports = function (grunt) {
     clean: {
       tests: {
         src: ['tests/**/*.diff.png', 'tests/**/*.fail.png']
+      },
+      build: {
+        src: ['build/{fat,thin}.js']
       }
     },
     usebanner: {
@@ -126,7 +129,8 @@ module.exports = function (grunt) {
     'uncss:thin', // faz o uncss do thin.css
     'less:componentize', // gera o arquivo no escopo sf-component
     'cssmin',
-    'usebanner'
+    'usebanner',
+    'clean:build'
   ])
 
   grunt.registerTask('test', [
