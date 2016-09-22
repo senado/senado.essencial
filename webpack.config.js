@@ -32,8 +32,8 @@ module.exports = {
       test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
       loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
     }, {
-      test: /\.jade$/,
-      loader: 'jade'
+      test: /\.pug$/,
+      loader: 'pug'
     }]
   },
 
@@ -49,12 +49,12 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
     new HtmlWebpackPlugin({
-      template: './src/fat.jade',
+      template: './src/fat.pug',
       excludeChunks: ['thin'],
       filename: 'fat.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/thin.jade',
+      template: './src/thin.pug',
       excludeChunks: ['fat'],
       filename: 'thin.html'
     })
