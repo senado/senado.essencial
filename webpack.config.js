@@ -30,7 +30,7 @@ module.exports = {
       loader: Extractor.extract('css?sourceMap!postcss!less?sourceMap')
     }, {
       test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
-      loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]'
+      loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
     }, {
       test: /\.jade$/,
       loader: 'jade'
