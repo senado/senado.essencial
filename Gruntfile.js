@@ -3,6 +3,13 @@ var path = require('path')
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    less: {
+      componentize: {
+        files: {
+          'build/fat.css': './src/less/full.less'
+        }
+      }
+    },
     uncss: {
       options: {
         ignore: ['.collapse.in', '.collapsing', '.open']
@@ -21,6 +28,16 @@ module.exports = function (grunt) {
         },
         files: {
           'build/thin.css': ['build/thin.html']
+        }
+      }
+    },
+    cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
+      essencial: {
+        files: {
+          'build/fat.css': 'build/fat.css'
         }
       }
     },
@@ -97,15 +114,19 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-uncss')
   grunt.loadNpmTasks('grunt-banner')
   grunt.loadNpmTasks('grunt-phantomcss')
+  grunt.loadNpmTasks('grunt-contrib-less')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-cssmin')
   // endregion
 
   grunt.registerTask('default', [
     'he', // converte caracteres especiais em htmlentities
     'uncss:fat', // faz o uncss do fat.css
     'uncss:thin', // faz o uncss do thin.css
-    'less:componentize' // gera o arquivo no escopo sf-component
+    'less:componentize', // gera o arquivo no escopo sf-component
+    'cssmin',
+    'usebanner'
   ])
 
   grunt.registerTask('test', [
