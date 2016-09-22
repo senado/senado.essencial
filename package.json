@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "start": "superstatic build -p 8080 --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
-    "build": "cross-env NODE_ENV=production webpack -p --progress",
+    "build": "cross-env NODE_ENV=production webpack -p --progress && grunt",
     "prebuild": "mkdirp build"
   },
   "devDependencies": {
@@ -38,10 +38,12 @@
     "less-loader": "^2.2.3",
     "mkdirp": "^0.5.1",
     "postcss-loader": "^0.13.0",
+    "postcss-uncss": "^0.14.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.3.1",
     "stylelint-config-standard": "^13.0.2",
     "superstatic": "^4.0.3",
+    "uncss": "^0.14.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
