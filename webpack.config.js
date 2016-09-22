@@ -2,7 +2,7 @@ var webpack = require('webpack')
 var Extractor = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var autoprefixer = require('autoprefixer')
-var uncss = require('postcss-uncss')
+// var uncss = require('postcss-uncss')
 
 const ENV = process.env.NODE_ENV || 'development'
 
@@ -38,7 +38,7 @@ module.exports = {
   },
 
   postcss: () => [
-    autoprefixer({ browsers: 'last 2 versions' }),
+    autoprefixer({ browsers: 'last 2 versions' })
     // uncss({ html: ['build/fat.html'] })
   ],
 
