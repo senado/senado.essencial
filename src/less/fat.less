@@ -1,7 +1,12 @@
 @bootstrap-path: "~bootstrap/less";
-@senado-path: "~senado.css/less";
+@senadocss-path: "~senado.css/less";
 
-// external
+// importar ícones antes do bootstrap por último por
+// causa do conflito de especificidade do .form-control-feedback
+// com o .glyphicon personalizado
+@import "components/icons";
+
+// vendors
 @import "vendors/bootstrap";
 @import "vendors/senado";
 
@@ -13,6 +18,7 @@
 @import "base/typography";
 
 // components
-@import "components/glyphicons";
-@import "components/icons";
+@import "components/topo";
 
+// external
+@import "~deaaz/app/less/az";
