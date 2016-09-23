@@ -2,14 +2,17 @@ doctype html
 
 html(lang='pt')
 
-    head
-        meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
-        meta(charset='utf-8')
-        meta(http-equiv='X-UA-Compatible', content='IE=edge')
-        meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
-        title Senado Federal
+  head
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
+    link(href=require('./less/fat.less') rel='stylesheet')
 
-    body(style='margin:0')
-        include ./jade/navglobal
-        include ./jade/portaltopo
-        include ./jade/footer
+    title Senado Federal
+
+  body(style='margin:0')
+    include ./jade/navglobal
+    include ./jade/portaltopo
+    include ./jade/footer
+    include ./jade/deaaz

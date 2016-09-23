@@ -1,17 +1,27 @@
 var webpack = require('webpack')
-var Extractor = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
 var autoprefixer = require('autoprefixer')
-// var uncss = require('postcss-uncss')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development'
+
+const lessVars = {
+  modifyVars: {
+    'bootstrap-path': '"~bootstrap/less"',
+    'senadocss-path': '"~senado.css/less"',
+    sourceMap: true
+  }
+}
 
 module.exports = {
 
   entry: {
-    thin: './src/less/thin',
-    fat: './src/less/fat',
-    vendors: './src/vendors'
+    main: './src/main',
+    vendors: ['jquery', 'bootstrap'],
+    deAaZdata: 'expose?deAaZdata!deaaz/app/modules/data.yaml'
+  },
+
+  externals: {
+    deAaZdata: 'deAaZdata'
   },
 
   output: {
@@ -21,32 +31,39 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.json', '.less']
+    extensions: ['', '.js', '.json', '.less'],
+    modulesDirectories: ['node_modules'],
+    alias: {
+      deAaZdata: 'deaaz/app/modules/data.yaml'
+    }
   },
 
   module: {
     loaders: [{
-      test: /\.(less|css)$/,
-      loader: Extractor.extract('css?sourceMap!postcss!less?sourceMap')
+      test: /[.](less|css)$/,
+      loader: `file?name=[name].css!extract!css?sourceMap!postcss!less?${JSON.stringify(lessVars)}`
     }, {
-      test: /\.(svg|woff|ttf|eot|woff2)(\?.*)?$/i,
+      test: /[.](svg|woff|ttf|eot|woff2)([?].*)?$/i,
       loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
     }, {
-      test: /\.pug$/,
-      loader: 'pug'
+      test: /[.](pug|jade)$/, loader: 'pug'
+      // test: /src[/][^/]*[.]pug$/, loader: 'file?name=[name].html!extract!html?attrs[]=link:href!extract!pug-html'
+    }, {
+      test: /[.]yaml$/, loaders: ['json', 'yaml']
     }]
   },
 
-  postcss: () => [
+  postcss: [
     autoprefixer({ browsers: 'last 2 versions' })
-    // uncss({ html: ['build/fat.html'] })
   ],
 
   plugins: ([
     new webpack.NoErrorsPlugin(),
-    new Extractor('[name].css', { allChunks: false }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
+    }),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery'
     }),
     new HtmlWebpackPlugin({
       template: './src/fat.pug',
