@@ -1,6 +1,6 @@
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 
@@ -15,7 +15,7 @@ const lessVars = {
 module.exports = {
 
   entry: {
-    main: './src/main',
+    essencial: './src/js/essencial',
     vendors: ['jquery', 'bootstrap'],
     deAaZdata: 'expose?deAaZdata!deaaz/app/modules/data.yaml'
   },
@@ -47,7 +47,6 @@ module.exports = {
       loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
     }, {
       test: /[.](pug|jade)$/, loader: 'pug'
-      // test: /src[/][^/]*[.]pug$/, loader: 'file?name=[name].html!extract!html?attrs[]=link:href!extract!pug-html'
     }, {
       test: /[.]yaml$/, loaders: ['json', 'yaml']
     }]
