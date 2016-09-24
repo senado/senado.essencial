@@ -4,12 +4,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 
-const lessVars = {
+const lessOptions = {
   modifyVars: {
     'bootstrap-path': '"~bootstrap/less"',
     'senadocss-path': '"~senado.css/less"',
     sourceMap: true
   }
+  // compress: false
 }
 
 module.exports = {
@@ -41,7 +42,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /[.](less|css)$/,
-      loader: `file?name=[name].css!extract!css?sourceMap!postcss!less?${JSON.stringify(lessVars)}`
+      loader: `file?name=[name].css!extract!css?sourceMap!postcss!less?${JSON.stringify(lessOptions)}`
     }, {
       test: /[.](svg|woff|ttf|eot|woff2)([?].*)?$/i,
       loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
