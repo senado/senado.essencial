@@ -7,10 +7,9 @@ const ENV = process.env.NODE_ENV || 'development'
 const lessOptions = {
   modifyVars: {
     'bootstrap-path': '"~bootstrap/less"',
-    'senadocss-path': '"~senado.css/less"',
-    sourceMap: true
-  }
-  // compress: false
+    'senadocss-path': '"~senado.css/less"'
+  },
+  sourceMap: true
 }
 
 module.exports = {
