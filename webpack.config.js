@@ -1,17 +1,8 @@
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlPlugin = require('html-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
-
-const lessOptions = {
-  modifyVars: {
-    'bootstrap-path': '"~bootstrap/less"',
-    'senadocss-path': '"~senado.css/less"'
-  },
-  sourceMap: true
-}
-
 module.exports = {
 
   entry: {
@@ -41,7 +32,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /[.](less|css)$/,
-      loader: `file?name=[name].css!extract!css?sourceMap!postcss!less?${JSON.stringify(lessOptions)}`
+      loader: `file?name=[name].css!extract!css!postcss!less`
     }, {
       test: /[.](svg|woff|ttf|eot|woff2)([?].*)?$/i,
       loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
@@ -64,12 +55,12 @@ module.exports = {
     new webpack.ProvidePlugin({
       jQuery: 'jquery'
     }),
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       template: './src/fat.pug',
       excludeChunks: ['thin'],
       filename: 'fat.html'
     }),
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       template: './src/thin.pug',
       excludeChunks: ['fat'],
       filename: 'thin.html'
@@ -81,7 +72,7 @@ module.exports = {
 
   stats: { colors: true },
 
-  devtool: ENV === 'production' ? undefined : 'inline-source-map',
+  devtool: ENV === 'production' ? undefined : 'source-map',
 
   devServer: {
     port: process.env.PORT || 8080,
