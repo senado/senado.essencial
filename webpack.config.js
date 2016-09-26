@@ -7,12 +7,13 @@ module.exports = {
 
   entry: {
     essencial: './src/js/essencial',
-    vendors: ['jquery', 'bootstrap'],
+    vendors: ['expose?jQuery!jquery', 'bootstrap'],
     deAaZdata: 'expose?deAaZdata!deaaz/app/modules/data.yaml'
   },
 
   externals: {
-    deAaZdata: 'deAaZdata'
+    deAaZdata: 'deAaZdata',
+    jquery: 'jQuery'
   },
 
   output: {
@@ -51,9 +52,6 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
-    }),
-    new webpack.ProvidePlugin({
-      jQuery: 'jquery'
     }),
     new HtmlPlugin({
       template: './src/fat.pug',
