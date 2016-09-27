@@ -7,12 +7,10 @@ module.exports = {
 
   entry: {
     essencial: './src/js/essencial',
-    vendors: ['expose?jQuery!jquery', 'bootstrap'],
-    deAaZdata: 'expose?deAaZdata!deaaz/app/modules/data.yaml'
+    vendors: ['expose?jQuery!jquery', 'bootstrap']
   },
 
   externals: {
-    deAaZdata: 'deAaZdata',
     jquery: 'jQuery'
   },
 
