@@ -1,11 +1,12 @@
 /**
  * Componentização da folha de estilo essencial:
- * `.sf-component`: Classe de escopo que abrange todos os seletores do módulo essencial. Dessa forma,
- * todas as classes serão prefixadas a fim de evitar conflitos com os estilos existentes.
+ * `.sf-component`: Classe de escopo que abrange todos os seletores
+ * do módulo essencial. Dessa forma, todas as classes serão prefixadas
+ * a fim de evitar conflitos com os estilos existentes.
  */
 
-@bootstrap-path: "node_modules/bootstrap/less";
-@senado-path:    "node_modules/senado.css/less";
+@bootstrap-path: "./node_modules/bootstrap/less";
+@senado-path:    "./node_modules/senado.css/less";
 
 @import (reference) "@{bootstrap-path}/variables";
 @import (reference) "@{bootstrap-path}/mixins";
@@ -14,9 +15,9 @@
 
 @import (reference) "@{senado-path}/utils/variables";
 
-@import "less/config";
+@import "utils/variables";
 
-.aui .sf-component, .sf-component {
+body:not(#😎) .sf-component {
 
     font-family: @font-family-base;
     font-size: @font-size-base;
@@ -35,7 +36,7 @@
         text-decoration: none;
     }
 
-    @import (less) "output/uncss.css";
+    @import (less) "build/fat.css";
 
     // Pinar tamanho da fonte de alguns componentes
 
@@ -64,7 +65,7 @@
 }
 
 // Fixes
-.aui .sf-component {
+body:not(#😎) .sf-component {
     // corrige line-heigth do bs2.
     li {
         line-height: @line-height-base;
@@ -78,8 +79,8 @@
 
 }
 
-.twbs2 .sf-component {
-    // forçar cimpatibilidade do collapse do twbs2 com o twbs3
+body.twbs2:not(#😎) .sf-component {
+    // forçar compatibilidade do collapse do twbs2 com o twbs3
     .collapse {
         display: block;
     }
@@ -95,5 +96,5 @@
     }
 }
 
-@import "less/namespace";
-@import "less/typo";
+@import "utils/namespace";
+@import "base/typography";
