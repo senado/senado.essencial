@@ -13,14 +13,15 @@
                     .Icon.Icon--menu.Icon--md
 
             .PortalTopo-busca.collapse
-                form.Az.open(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
-                    .has-feedback.has-feedback-left(data-toggle='dropdown')
+                form.Az(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
+                    .has-feedback.has-feedback-left
                         input.Az-input.form-control(type='text', placeholder='Busca', autocomplete='off', name='q')
                         i.form-control-feedback.glyphicon.glyphicon-search.text-muted
-                        .Az-place.Az-place--float.Az-place--wide
-                            .Box.Box--lg
-                                .List.Box
-                                    .eta.text-muted O quê você procura?
+                        .u-posRelative
+                          .Az-place.Az-place--float.Az-place--wide
+                              .Box.Box--lg
+                                  .List.Box
+                                      .eta.text-muted O quê você procura?
 
         nav.Nav--principal.navbar.navbar-default.navbar-collapse.nav-collapse.collapse(role="navigation")
             ul.nav.navbar-nav

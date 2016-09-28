@@ -12,15 +12,15 @@
                 .Icon.Icon--menu.Icon--md
 
         .PortalTopo-busca.collapse
-          form.Az(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
-            .has-feedback.has-feedback-left(data-toggle='dropdown')
-              input.Az-input.form-control(type='text', placeholder='Busca', autocomplete='off', name='q')
-              i.form-control-feedback
-                .glyphicon.glyphicon-search.text-muted
-              .Az-place.Az-place--float.Az-place--wide
-                .Box.Box--lg
-                  .List.Box
-                    .eta.text-muted O quê você procura?
+            form.Az(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
+                .has-feedback.has-feedback-left
+                    input.Az-input.form-control(type='text', placeholder='Busca', autocomplete='off', name='q')
+                    i.form-control-feedback.glyphicon.glyphicon-search.text-muted
+                    .u-posRelative
+                      .Az-place.Az-place--float.Az-place--wide
+                          .Box.Box--lg
+                              .List.Box
+                                  .eta.text-muted O quê você procura?
 
         .clearfix
 
