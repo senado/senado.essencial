@@ -1,18 +1,21 @@
 @import (reference) "@{senadocss-path}/components/icons";
 
 @font-face {
-	font-family: 'essencial';
-	src:url('../fonts/essencial.woff') format('woff'),
-		url('../fonts/essencial.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'essencial';
+  src:
+    url('../fonts/essencial.woff') format('woff'),
+    url('../fonts/essencial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.glyphicon, .Icon {
-    // o fat precisa da declaração de .glyphicon pq os
-    // ícones do twbs2 é o .fa-
-    &:extend(.Icon);
-  	font-family: 'essencial';
+.glyphicon,
+.Icon {
+  &:extend(.Icon);
+
+  // o fat precisa da declaração de .glyphicon pq os
+  // ícones do twbs2 é o .fa-
+  font-family: 'essencial';
 }
 
 .glyphicon-lock::before {

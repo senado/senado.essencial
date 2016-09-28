@@ -2,16 +2,18 @@
 @import (reference) "@{senadocss-path}/components/icons";
 
 @font-face {
-	font-family: 'essencial';
-	src:url('../fonts/essencial.woff') format('woff'),
-		url('../fonts/essencial.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'essencial';
+  src:
+    url('../fonts/essencial.woff') format('woff'),
+    url('../fonts/essencial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .Icon {
-    &:extend(.Icon);
-  	font-family: 'essencial';
+  &:extend(.Icon);
+
+  font-family: 'essencial';
 }
 
 .Icon--menu::before {
