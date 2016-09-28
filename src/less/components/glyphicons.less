@@ -9,9 +9,27 @@
 	font-style: normal;
 }
 
-.Icon {
+.glyphicon, .Icon {
+    // o fat precisa da declaração de .glyphicon pq os
+    // ícones do twbs2 é o .fa-
     &:extend(.Icon);
   	font-family: 'essencial';
+}
+
+.glyphicon-lock::before {
+  content: "\e033";
+}
+
+.glyphicon-menu-right::before {
+  content: "\e258";
+}
+
+.glyphicon-chevron-up::before {
+  content: "\e113";
+}
+
+.glyphicon-search::before {
+  content: "\e003";
 }
 
 .Icon--menu::before {
@@ -21,3 +39,4 @@
 .Icon--md {
   font-size: 16px;
 }
+
