@@ -1,54 +1,57 @@
 
 .container
 
-    .PortalTopo
+  .PortalTopo
 
-        .PortalTopo-id.PortalTopo-id--wide
-            .PortalTopo-title
-                | Título da página
+    .PortalTopo-id.PortalTopo-id--wide
+      .PortalTopo-title
+        | Título da página
 
-        .PortalTopo-togglers.visible-xs
-            button.PortalTopo-toggler--menu(data-toggle='collapse', data-target='.Nav--principal')
-                .Icon.Icon--menu.Icon--md
-
-        .PortalTopo-busca.collapse
-            form.Az(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
-                .has-feedback.has-feedback-left
-                    input.Az-input.form-control(type='text', placeholder='Busca', autocomplete='off', name='q')
-                    i.form-control-feedback.glyphicon.glyphicon-search.text-muted
-                    .u-posRelative
-                      .Az-place.Az-place--float.Az-place--wide
-                          .Box.Box--lg
-                              .List.Box
-                                  .eta.text-muted O quê você procura?
-
-        .clearfix
+    .PortalTopo-togglers.visible-xs
+      button.PortalTopo-toggler--search(data-toggle='collapse', data-target='.PortalTopo-busca')
+        .Icon.Icon--search.Icon--md
+      button.PortalTopo-toggler--menu(data-toggle='collapse', data-target='.Nav--principal')
+        .Icon.Icon--menu.Icon--md
 
 
-    nav.Nav--principal.navbar.navbar-default.navbar-collapse.nav-collapse.collapse(role="navigation")
-        ul.nav.navbar-nav
-            li: a(href='#') Início
-            li: a(href='#') Constituição Federal
-            li: a(href='#') Legislação Federal
-            li: a(href='#') Regimento Interno
-            li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown')
-                    = 'Consulte '
-                    span.caret
-                ul.dropdown-menu
-                    li: a(href='#') Bases Históricas
-                    li: a(href='#') SICON
+    .PortalTopo-busca.collapse
+      form.Az(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
+        .has-feedback.has-feedback-left
+          input.Az-input.form-control(type='text', placeholder='Busca', autocomplete='off', name='q')
+          i.form-control-feedback.glyphicon.glyphicon-search.text-muted
+          .u-posRelative
+            .Az-place.Az-place--float.Az-place--wide
+              .Box.Box--lg
+                .List.Box
+                  .eta.text-muted O quê você procura?
 
-    nav.Nav--secundaria.hidden-xs
-        ul.nav.navbar-nav.pull-right
-            li: a(href='http://www12.senado.leg.br/jornal') Jornal do Senado
-            li: a(href='http://www12.senado.gov.br/noticias') Senado Notícias
-            li: a(href='http://www.senado.leg.br/noticias/tv') TV Senado
+    .clearfix
+
+
+  nav.Nav--principal.navbar.navbar-default.navbar-collapse.nav-collapse.collapse(role="navigation")
+    ul.nav.navbar-nav
+      li: a(href='#') Início
+      li: a(href='#') Constituição Federal
+      li: a(href='#') Legislação Federal
+      li: a(href='#') Regimento Interno
+      li.dropdown
+        a.dropdown-toggle(href='#', data-toggle='dropdown')
+          = 'Consulte '
+          span.caret
+        ul.dropdown-menu
+          li: a(href='#') Bases Históricas
+          li: a(href='#') SICON
+
+  nav.Nav--secundaria.hidden-xs
+    ul.nav.navbar-nav.pull-right
+      li: a(href='http://www12.senado.leg.br/jornal') Jornal do Senado
+      li: a(href='http://www12.senado.gov.br/noticias') Senado Notícias
+      li: a(href='http://www.senado.leg.br/noticias/tv') TV Senado
 
 .container
-    ol.Breadcrumbs
-        li: a Home
-        li: a Constituição Federal
-        li: a Emendas Constituicionais
-        li.active EC nº 35
-    h1.titulo-principal Ementa Constitucional nº 35
+  ol.Breadcrumbs
+    li: a Home
+    li: a Constituição Federal
+    li: a Emendas Constituicionais
+    li.active EC nº 35
+  h1.titulo-principal Ementa Constitucional nº 35
