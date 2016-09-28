@@ -16,7 +16,6 @@ module.exports = {
 
   output: {
     path: './build',
-    publicPath: '/',
     filename: '[name].js'
   },
 
@@ -34,7 +33,7 @@ module.exports = {
       loader: `file?name=[name].css!extract!css!postcss!less`
     }, {
       test: /[.](svg|woff|ttf|eot|woff2)([?].*)?$/i,
-      loader: 'file-loader?name=./fonts/[name]_[hash:base64:5].[ext]'
+      loader: 'file-loader?name=./fonts/[name].[ext]?v=[hash:base64:5]'
     }, {
       test: /[.](pug|jade)$/, loader: 'pug'
     }, {
