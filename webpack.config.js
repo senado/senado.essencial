@@ -6,7 +6,7 @@ const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
 
   entry: {
-    essencial: './src/js/essencial',
+    // essencial: './src/js/essencial',
     vendors: ['expose?jQuery!jquery', 'bootstrap']
   },
 
