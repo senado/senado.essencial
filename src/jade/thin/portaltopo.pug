@@ -9,24 +9,14 @@
 
     .PortalTopo-togglers.visible-xs
       button.PortalTopo-toggler--search(data-toggle='collapse', data-target='.PortalTopo-busca')
-        .Icon.Icon--search.Icon--md
+        .glyphicon.glyphicon-search
       button.PortalTopo-toggler--menu(data-toggle='collapse', data-target='.Nav--principal')
         .Icon.Icon--menu.Icon--md
 
-
     .PortalTopo-busca.collapse
-      form.Az(role='search' action='http://www6g.senado.gov.br/busca/' data-colecao="Senadores")
-        .has-feedback.has-feedback-left
-          input.Az-input.form-control(type='text', placeholder='Busca', autocomplete='off', name='q')
-          i.form-control-feedback.glyphicon.glyphicon-search.text-muted
-          .u-posRelative
-            .Az-place.Az-place--float.Az-place--wide
-              .Box.Box--lg
-                .List.Box
-                  .eta.text-muted O quê você procura?
+      include ../commons/search.pug
 
     .clearfix
-
 
   nav.Nav--principal.navbar.navbar-default.navbar-collapse.nav-collapse.collapse(role="navigation")
     ul.nav.navbar-nav
