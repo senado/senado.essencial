@@ -1,5 +1,5 @@
 var $ = require('jquery')
 
 $(function () {
-  require('deaaz/app/modules/az')
+  require('deaaz/app/modules/index')
 })
