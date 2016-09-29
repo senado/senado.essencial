@@ -84,7 +84,15 @@ body:not(#_) .sf-component {
   }
 }
 
-body.twbs2:not(#_) .sf-component {
+body.twbs2:not(#_) {
+  @media (max-width: @screen-xs-max) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+body.twbs2:not(#_) .sf-component,
+.sf-component.twbs2 {
   // forçar compatibilidade do collapse do twbs2 com o twbs3
   .collapse {
     height: 0;
