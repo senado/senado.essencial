@@ -3,21 +3,45 @@
   <div class="sf-container">
     <div class="PortalTopo">
       <div class="PortalTopo-id PortalTopo-id--wide">
-        <div class="PortalTopo-title">T&iacute;tulo da p&aacute;gina</div>
-      </div>
-      <div class="PortalTopo-togglers visible-xs">
-        <div data-toggle="collapse" data-target=".Nav--principal" class="PortalTopo-toggler--menu">
-          <div class="Icon Icon--menu Icon--md"></div>
+        <div class="PortalTopo-title">Senado
+          <div class="PortalTopo-sub eta-xs epsilon">Essencial</div>
         </div>
       </div>
+      <div class="PortalTopo-togglers visible-xs">
+        <button class="PortalTopo-toggler--search" data-toggle="collapse" data-target=".PortalTopo-busca">
+          <div class="glyphicon glyphicon-search"></div>
+        </button>
+        <button class="PortalTopo-toggler--menu" data-toggle="collapse" data-target=".Nav--principal">
+          <div class="Icon Icon--menu Icon--md"></div>
+        </button>
+      </div>
+      <div class="PortalTopo-busca collapse">
+        <form class="Az" role="search" action="http://www6g.senado.gov.br/busca/" data-colecao="Atividade Legislativa">
+          <div class="input-group" data-toggle="_dropdown">
+            <input class="Az-input form-control" type="text" placeholder="Busca" autocomplete="off" name="q"/><span class="input-group-btn">
+              <button class="btn btn-default" type="submit" aria-label="Buscar">
+                <div class="glyphicon glyphicon-search text-muted"></div>
+              </button></span>
+          </div>
+          <div class="u-posRelative">
+            <div class="Az-place Az-place--float Az-place--wide">
+              <div class="Box Box--lg">
+                <div class="List Box">
+                  <div class="eta text-muted">O qu&ecirc; voc&ecirc; procura?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-    <nav role="navigation" class="Nav--principal navbar navbar-default navbar-collapse nav-collapse collapse">
+    <nav class="Nav--principal navbar navbar-default navbar-collapse nav-collapse collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li><a href="#">In&iacute;cio</a></li>
         <li><a href="#">Constitui&ccedil;&atilde;o Federal</a></li>
         <li><a href="#">Legisla&ccedil;&atilde;o Federal</a></li>
         <li><a href="#">Regimento Interno</a></li>
-        <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Consulte <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Consulte <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Bases Hist&oacute;ricas</a></li>
             <li><a href="#">SICON</a></li>
@@ -42,6 +66,6 @@
       <li><a>Emendas Constituicionais</a></li>
       <li class="active">EC n&ordm; 35</li>
     </ol>
-    <div class="sf-H1 titulo-principal">Ementa Constitucional n&ordm; 35</div>
+    <div class="sf-H1 titulo-principal">Emenda Constitucional n&ordm; 35</div>
   </div>
 </div>
