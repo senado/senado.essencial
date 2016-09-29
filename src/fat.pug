@@ -9,10 +9,15 @@ html(lang='pt')
     meta(name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
     link(href=require('./less/fat.less') rel='stylesheet')
 
-    title Senado Federal
+    title
+      - var version = require('../package.json').version
+      | senado.essencial #{version}
 
   body(style='margin:0')
     include ./jade/navglobal
     include ./jade/portaltopo
+    .container
+      p.eta senado.essencial
+        span.milli.text-muted  #{version}
     include ./jade/deaaz
     include ./jade/footer

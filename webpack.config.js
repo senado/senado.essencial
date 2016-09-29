@@ -38,6 +38,8 @@ module.exports = {
       test: /[.](pug|jade)$/, loader: 'pug'
     }, {
       test: /[.]yaml$/, loaders: ['json', 'yaml']
+    }, {
+      test: /[.]json$/, loader: 'json'
     }]
   },
 
