@@ -1,0 +1,44 @@
+@import (reference) "@{senadocss-path}/components/icons";
+
+@font-face {
+  font-family: 'essencial';
+  src:
+    url('../fonts/essencial.woff') format('woff'),
+    url('../fonts/essencial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.glyphicon,
+.Icon {
+  &:extend(.Icon);
+
+  // o fat precisa da declaração de .glyphicon pq os
+  // ícones do twbs2 é o .fa-
+  font-family: 'essencial';
+}
+
+.glyphicon-lock::before {
+  content: "\e033";
+}
+
+.glyphicon-menu-right::before {
+  content: "\e258";
+}
+
+.glyphicon-chevron-up::before {
+  content: "\e113";
+}
+
+.glyphicon-search::before {
+  content: "\e003";
+}
+
+.Icon--menu::before {
+  content: "\f05e";
+}
+
+.Icon--md {
+  font-size: 16px;
+}
+

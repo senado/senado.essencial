@@ -1,0 +1,12 @@
+default:
+  - 'build'                   # gera html, styles, faz o uncss e componentiza
+  - 'cssmin:essencial'        # comprime o css gerado
+  - 'usebanner:essencial'     # insere o banner nos arquivos css
+  - 'pug:includes'            # gera os html para inserção
+  - 'copy:html'               # guarda os arquivos html em utf-8 antes da conversão em entities
+  - 'he:includes'             # converte caracteres especiais em htmlentities
+
+build:
+  - 'uncss:fat'               # faz o uncss do fat.css
+  - 'uncss:thin'              # faz o uncss do thin.css
+  - 'less:componentize'       # gera o arquivo no escopo sf-component
