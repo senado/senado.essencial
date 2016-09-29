@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack -p --progress && grunt",
     "prerelease": "npm version prerelease && npm run build",
     "prebuild": "rimraf build",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
