@@ -1,0 +1,32 @@
+@bootstrap-path: "~bootstrap/less";
+@senadocss-path: "~senado.css/less";
+
+@import (reference) "@{bootstrap-path}/variables";
+@import (reference) "@{bootstrap-path}/mixins";
+@import (reference) "@{bootstrap-path}/grid";
+@import (reference) "@{bootstrap-path}/utilities";
+@import (reference) "@{bootstrap-path}/buttons";
+
+body {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+}
+
+// vendors
+@import "vendors/senado";
+
+// utils
+@import "utils/variables";
+
+// components
+@import "components/icons";
+@import "components/topo";
+@import "components/portaltopo";
+
+// fixes
+@import "fixes/thin";
+
+// external
+@import "~deaaz/app/less/az";

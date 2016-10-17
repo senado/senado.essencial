@@ -1,0 +1,114 @@
+@import (reference) "@{bootstrap-path}/variables";
+@import (reference) "@{bootstrap-path}/mixins";
+@import (reference) "@{bootstrap-path}/grid";
+
+@import (reference) "@{senadocss-path}/base/links";
+
+/**
+ * Navegação Global:
+ * `.NavGlobal` - documentation on what your
+ * component is goes here. Markdown is encouraged.
+ *
+ *   @example
+ *   .NavGlobal.navbar.navbar-static-top
+ *     .container-fluid
+ *      .NavGlobal-logo.pull-left
+ *      a(href='http://www.senado.gov.br/')
+ *        img(src='img/senado.svg', alt='Senado Federal')
+ *      .NavGlobal-middle
+ *      a.flat(href='#') Toolkit
+ */
+
+.NavGlobal {
+  height: 47px;
+  min-height: 47px; // override no nav do bootstrap
+  line-height: 43px;
+  background-color: #00305c;
+  border-bottom: 4px solid #00824a;
+  box-shadow: 0 4px 0 #fae042;
+  margin-bottom: 4px; // compensar box-shadow
+  font-size: 12px;
+
+  @media (max-width: @screen-xs-max) {
+    margin-bottom: 4px;
+  }
+}
+
+.NavGlobal-container {
+  .container();
+}
+
+.NavGlobal-middle {
+  color: #fff;
+  text-align: center;
+
+  @media (max-width: @screen-xs-min) {
+    display: none;
+  }
+
+  > a {
+    .flat();
+  }
+}
+
+.NavGlobal-logo {
+  font-size: 0;
+
+  > img {
+    vertical-align: middle;
+  }
+
+  &::after {
+    content: '\00a0';
+  }
+}
+
+.NavGlobal-toggle {
+  color: #b2c0ce;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.NavGlobal-menu {
+  vertical-align: middle;
+  background: transparent;
+  font-size: 18px;
+}
+
+/* stylelint-disable selector-max-compound-selectors, selector-max-specificity */
+.NavGlobal-dropdownMenu.dropdown-menu {
+  background-color: #1a456c;
+  border-radius: 0;
+  border-bottom: none;
+  box-shadow: none;
+  top: 42px;
+  margin-top: 9px;
+  padding: 5px 20px;
+  border-top: none;
+  font-size: 12px;
+  line-height: @line-height-base;
+
+  > li > a {
+    padding: 6px 0;
+    color: #fff;
+    border-bottom: 1px solid #1a9fdd;
+
+    &:hover,
+    &:focus {
+      background: inherit;
+      color: #fff;
+    }
+  }
+
+  > li:last-child > a {
+    border: none;
+  }
+}
