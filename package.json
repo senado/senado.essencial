@@ -33,7 +33,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "load-grunt-config": "^0.19.2",
-    "postcss-loader": "^0.13.0",
+    "postcss-loader": "^1.0.0",
     "pug": "^2.0.0-beta6",
     "pug-loader": "^2.3.0",
     "rimraf": "^2.5.4",
