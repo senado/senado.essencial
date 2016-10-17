@@ -8,7 +8,6 @@
     "start": "superstatic build -p 8080 --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress && grunt",
-    "prerelease": "npm version prerelease && npm run build",
     "prebuild": "rimraf build",
     "deploy": "npm run build && gh-pages -d build"
   },
