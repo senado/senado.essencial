@@ -1,3 +1,8 @@
+#1.10.1
+
+* Corrigir exibição no thin.less da lista de páginas dos servidores 
+
+
 # 1.10.0
 
 * Atualizar senado.css
