@@ -1,3 +1,35 @@
+# 1.10.0
+
+* Atualizar senado.css
+* Incluir links no rodapé para as página de servidores.
+
+
+# 1.9.0
+
+* Padronizar subtítulo dos portais (.PortalTopo-sub)
+* Incluir arquivos na pasta iso-8859-1 do build
+* Fixar tamanho do sf-H1
+* [twbs2] Ajustar .sf-component e <body> 
+* [twbs2] Remover padding do body no viewport xs 
+* [twbs2] Fix das margens do .container no viewport xs
+* [twbs2] Definir alturar inicial do .collapse em 0  
+* stylelint
+* Deixar campo de busca preparado para o AZ
+* Componente .PortalTopo-busca
+* Utilizar querystring para versionar as fontes ao invés de alterar o nome do arquivo
+* Separar Icon do glyphicons
+* Atualizar versão do bootstrap (3.3.7)
+* Organizar gruntfile
+* Salvar configurações do icomoon
+* Remover tarefa phantomjs
+* Atualizar senado.css
+* Novas fontes
+* Converter .jade para .pug
+* Remover componentes do bootstrap não utilizados
+* Configurar .editorconfig
+* Migrar build para webpack
+
+
 # 1.8.5
 
 * Permitir expansão do menu no iOS
