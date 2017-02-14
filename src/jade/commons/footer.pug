@@ -48,12 +48,22 @@
         = ' '
         a.ShareIcon.ShareIcon--dark.ShareIcon--circle.ShareIcon--flickr(href='http://www.flickr.com/agenciasenado', target='_blank', title='Flickr', alt='Flickr')
 
-.FooterMain-end.milli
-  span.glyphicon.glyphicon-lock.u-alignBaseline
-  = ' '
-  a(href='https://intranet.senado.gov.br/', target='_blank')
-    | Intranet
-  span.pull-right
+.FooterMain-stand.Arrange.Arrange--middle.milli
+
+  .Arrange-sizeFit.u-textNoWrap
+    span.glyphicon.glyphicon-lock.u-alignBaseline
+    = ' '
+    a(href='https://intranet.senado.gov.br/', target='_blank')
+      | Intranet
+
+  .Arrange-sizeFill
+    ul.Box.Fence.Fence--lg.hidden-xs
+      li: a(href='http://www12.senado.leg.br/institucional/pessoas/pessoas') Servidor efetivo
+      li: a(href='http://www12.senado.leg.br/institucional/pessoas/pessoas') Servidor comissionado
+      li: a(href='http://www12.senado.leg.br/institucional/pessoas/pessoas') Servidor aposentado
+      li: a(href='http://www12.senado.leg.br/institucional/pessoas/pessoas') Pensionista
+
+  .Arrange-sizeFit.u-textNoWrap
     span.glyphicon.glyphicon-chevron-up.u-alignBaseline
     = ' '
     a(href='#')
