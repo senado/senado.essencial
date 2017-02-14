@@ -1,3 +1,9 @@
+# 1.10.0
+
+* Atualizar senado.css
+* Incluir links no rodapé para as página de servidores.
+
+
 # 1.9.0
 
 * Padronizar subtítulo dos portais (.PortalTopo-sub)
