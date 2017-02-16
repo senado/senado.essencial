@@ -5052,9 +5052,9 @@ senado.css@agenciasenado/senado.css#2.6.1:
     jquery "^2.2.2"
     morgan "^1.7.0"
 
-"senado.css@git+https://github.com/fabianonunes/senado.css.git#2.9.0":
-  version "2.8.0"
-  resolved "git+https://github.com/fabianonunes/senado.css.git#bc5d12424e26fa8f456748bb36eee81fd3c03a92"
+"senado.css@git+https://github.com/fabianonunes/senado.css.git#2.11.0":
+  version "2.11.0"
+  resolved "git+https://github.com/fabianonunes/senado.css.git#9224104b5b128dcf7d65eb83f098941c893defcf"
   dependencies:
     bootstrap "^3.3.6"
     connect-cors "^0.5.6"

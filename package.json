@@ -49,7 +49,7 @@
     "bootstrap": "^3.3.7",
     "deaaz": "git+https://github.com/fabianonunes/deaaz.git#0.0.6",
     "jquery": "^3.1.1",
-    "senado.css": "git+https://github.com/fabianonunes/senado.css.git#2.9.0"
+    "senado.css": "git+https://github.com/fabianonunes/senado.css.git#2.11.0"
   },
   "stylelint": {
     "extends": "mosaaaico2/stylelint"
