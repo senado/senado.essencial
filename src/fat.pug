@@ -13,9 +13,9 @@ html(lang='pt')
       - var version = require('../package.json').version
       | senado.essencial #{version}
 
-  body
-    .sf-component
-      include pug/commons/navglobal
+  //- adicionar margin:0 para a versão de build
+  body(style='margin:0')
+    include pug/fat/navglobal
     include pug/fat/portaltopo
 
     .sf-component
