@@ -1,13 +1,15 @@
+var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var HtmlPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
 
   entry: {
     // essencial: './src/js/essencial',
-    vendors: ['expose?jQuery!jquery', 'bootstrap']
+    vendors: ['expose-loader?jQuery!jquery', 'bootstrap']
   },
 
   externals: {
@@ -15,40 +17,46 @@ module.exports = {
   },
 
   output: {
-    path: './build',
+    path: path.resolve('./build'),
     filename: '[name].js'
   },
 
   resolve: {
-    extensions: ['', '.js', '.json', '.less'],
-    modulesDirectories: ['node_modules'],
+    extensions: ['.js', '.json', '.less'],
     alias: {
       deAaZdata: 'deaaz/app/modules/data.yaml'
     }
   },
 
   module: {
-    loaders: [{
-      test: /[.](less|css)$/,
-      loader: `file?name=[name].css!extract!css!postcss!less`
+    rules: [{
+      test: /\.(less|css)$/,
+      use: [
+        'file-loader?name=[name].css',
+        'extract-loader',
+        'css-loader?sourceMap',
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [
+              autoprefixer({ browsers: 'last 2 versions' })
+            ]
+          }
+        },
+        'less-loader?sourceMap'
+      ]
     }, {
       test: /[.](svg|woff|ttf|eot|woff2)([?].*)?$/i,
       loader: 'file-loader?name=./fonts/[name].[ext]?v=[hash:base64:5]'
     }, {
-      test: /[.](pug|jade)$/, loader: 'pug'
+      test: /[.](pug|jade)$/, loader: 'pug-loader'
     }, {
-      test: /[.]yaml$/, loaders: ['json', 'yaml']
-    }, {
-      test: /[.]json$/, loader: 'json'
+      test: /[.]yaml$/, loaders: ['json-loader', 'yaml-loader']
     }]
   },
 
-  postcss: [
-    autoprefixer({ browsers: 'last 2 versions' })
-  ],
-
-  plugins: ([
-    new webpack.NoErrorsPlugin(),
+  plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
@@ -67,10 +75,7 @@ module.exports = {
       excludeChunks: ['fat'],
       filename: 'thin.html'
     })
-  ]).concat(ENV === 'production' ? [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin()
-  ] : []),
+  ],
 
   stats: { colors: true },
 
@@ -79,7 +84,6 @@ module.exports = {
   devServer: {
     port: process.env.PORT || 8080,
     host: '0.0.0.0',
-    colors: true,
     publicPath: '/',
     contentBase: './src',
     historyApiFallback: true

@@ -13,11 +13,18 @@ html(lang='pt')
       - var version = require('../package.json').version
       | senado.essencial #{version}
 
-  body(style='margin:0')
-    include ./pug/navglobal
-    include ./pug/portaltopo
-    .sf-component: .sf-container
-      p.eta senado.essencial
-        span.milli.text-muted  #{version}
-    include ./pug/deaaz
-    include ./pug/footer
+  body
+    .sf-component
+      include pug/commons/navglobal
+
+    include pug/fat/portaltopo
+
+    .sf-component
+      .sf-container
+        p.eta senado.essencial
+          span.milli.text-muted  #{version}
+
+    include pug/commons/deaaz
+    include pug/fat/footer
+
+    include pug/commons/analytics
