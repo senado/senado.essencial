@@ -1,3 +1,17 @@
+# 1.11.0
+
+* Atualizar para webpack2
+* Atualizar senado.css
+* Utilizar o Fence do senado.css
+* Remover classes não utilizadas
+* Remover dependências não utilizadas
+* Utilizar o mesmo NavGlobal para o fat e o thin
+* Remover analytics do footer e jogar direto na template
+* Ajustar includes do fat.pug
+* Renomear pasta less para styles
+* Renomear pasta jade para pug
+
+
 #1.10.1
 
 * Corrigir exibição no thin.less da lista de páginas dos servidores 

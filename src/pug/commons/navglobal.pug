@@ -2,7 +2,9 @@
 
   .NavGlobal-container
 
-    .pull-right.dropdown
+    //- os dropdowns precisam ficar aberto no momento de gerar o uncss e
+    //- fechado na hora do build
+    .pull-right.dropdown(class=dist ? '' : 'open', role='navigation')
       a.NavGlobal-toggle.dropdown-toggle(data-toggle='dropdown')
         .Icon.Icon--menu.Icon--md
         span.u-alignMiddle  Portais

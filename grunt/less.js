@@ -4,7 +4,7 @@ module.exports = {
   },
   componentize: {
     files: {
-      '<%= config.dist %>/fat.css': 'src/less/full.less'
+      '<%= config.dist %>/fat.css': 'src/styles/full.less'
     }
   }
 }
