@@ -47,7 +47,6 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "deaaz": "git+https://github.com/fabianonunes/deaaz.git#0.0.6",
-    "extract-text-webpack-plugin": "beta",
     "jquery": "^3.1.1",
     "senado.css": "git+https://github.com/fabianonunes/senado.css.git#2.9.0"
   }

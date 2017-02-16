@@ -2,7 +2,6 @@ var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var HtmlPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
