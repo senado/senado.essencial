@@ -65,11 +65,6 @@ module.exports = {
       filename: 'fat.html'
     }),
     new HtmlPlugin({
-      template: './src/layout.pug',
-      excludeChunks: ['fat'],
-      filename: 'layout.html'
-    }),
-    new HtmlPlugin({
       template: './src/thin.pug',
       excludeChunks: ['fat'],
       filename: 'thin.html'
