@@ -1,3 +1,9 @@
+# 1.11.1
+
+* Corrigir caminhos da task grunt:pug
+* Recriar navglobal do fat
+
+
 # 1.11.0
 
 * Atualizar para webpack2
