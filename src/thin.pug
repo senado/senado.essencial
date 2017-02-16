@@ -8,16 +8,16 @@ html(lang='pt')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
     link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet')
-    link(href=require('./less/thin.less') rel='stylesheet')
+    link(href=require('./styles/thin.less') rel='stylesheet')
 
     title
       - var version = require('../package.json').version
       | senado.essencial #{version}
 
   body
-    include ./jade/thin/navglobal
-    include ./jade/thin/portaltopo
+    include ./pug/thin/navglobal
+    include ./pug/thin/portaltopo
     .container
       p.eta senado.essencial
         span.milli.text-muted  #{version}
-    include ./jade/thin/footer
+    include ./pug/thin/footer

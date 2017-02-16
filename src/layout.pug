@@ -1,0 +1,20 @@
+block includes
+doctype html
+
+html(lang='pt')
+
+  include pug/head
+
+  body#sfcss
+
+    block navglobal
+      include pug/thin/navglobal
+
+    .u-spacer--xl
+      block portaltopo
+        include pug/thin/portaltopo
+
+    block content
+
+    block footer
+      include pug/thin/footer

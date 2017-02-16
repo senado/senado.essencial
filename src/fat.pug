@@ -7,17 +7,17 @@ html(lang='pt')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
-    link(href=require('./less/fat.less') rel='stylesheet')
+    link(href=require('./styles/fat.less') rel='stylesheet')
 
     title
       - var version = require('../package.json').version
       | senado.essencial #{version}
 
   body(style='margin:0')
-    include ./jade/navglobal
-    include ./jade/portaltopo
+    include ./pug/navglobal
+    include ./pug/portaltopo
     .sf-component: .sf-container
       p.eta senado.essencial
         span.milli.text-muted  #{version}
-    include ./jade/deaaz
-    include ./jade/footer
+    include ./pug/deaaz
+    include ./pug/footer
