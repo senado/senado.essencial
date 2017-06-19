@@ -1,3 +1,9 @@
+# 1.11.2
+
+* Atualizar dependências
+* Incluir analytics no rodapé para facilitar a importação
+
+
 # 1.11.1
 
 * Corrigir caminhos da task grunt:pug
