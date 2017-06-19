@@ -1,3 +1,9 @@
+# 1.11.2
+
+* Atualizar dependências
+* Incluir analytics no rodapé para facilitar a importação
+
+
 # 1.11.1
 
 * Corrigir caminhos da task grunt:pug
@@ -20,7 +26,7 @@
 
 #1.10.1
 
-* Corrigir exibição no thin.less da lista de páginas dos servidores 
+* Corrigir exibição no thin.less da lista de páginas dos servidores
 
 
 # 1.10.0
@@ -34,10 +40,10 @@
 * Padronizar subtítulo dos portais (.PortalTopo-sub)
 * Incluir arquivos na pasta iso-8859-1 do build
 * Fixar tamanho do sf-H1
-* [twbs2] Ajustar .sf-component e <body> 
-* [twbs2] Remover padding do body no viewport xs 
+* [twbs2] Ajustar .sf-component e <body>
+* [twbs2] Remover padding do body no viewport xs
 * [twbs2] Fix das margens do .container no viewport xs
-* [twbs2] Definir alturar inicial do .collapse em 0  
+* [twbs2] Definir alturar inicial do .collapse em 0
 * stylelint
 * Deixar campo de busca preparado para o AZ
 * Componente .PortalTopo-busca
