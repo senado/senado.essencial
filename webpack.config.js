@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var HtmlPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
@@ -69,7 +70,10 @@ module.exports = {
       template: './src/thin.pug',
       excludeChunks: ['fat'],
       filename: 'thin.html'
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/js/analytics.js' }
+    ])
   ],
 
   stats: { colors: true },
