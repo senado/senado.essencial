@@ -1,6 +1,6 @@
 {
   "name": "senado.essencial",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "repository": "http://git.io/senado.essencial",
   "license": "MIT",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
+    "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "expose-loader": "^0.7.3",
@@ -42,7 +43,7 @@
     "superstatic": "^4.1.0",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.5",
-    "yaml-loader": "^0.4.0"
+    "yaml-loader": "^0.5.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
