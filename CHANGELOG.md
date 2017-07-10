@@ -1,3 +1,11 @@
+# 1.12.0
+
+* Separar snippet do analytics em um arquivo próprio (/inc/essencial/analytics.js)
+* Converter snippet de `ga.js` para `analytics.js`
+* Criar arquivo html do rodapé sem o analytics (`footer-sem-ga.html`)
+* Atualizar dependências
+
+
 # 1.11.2
 
 * Atualizar dependências
