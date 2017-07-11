@@ -1,3 +1,8 @@
+# 1.13.0
+
+* Adicionar tracker global ao snippet do Google Analytics
+
+
 # 1.12.0
 
 * Separar snippet do analytics em um arquivo próprio (/inc/essencial/analytics.js)
