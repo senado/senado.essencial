@@ -1,3 +1,9 @@
+# 1.13.1
+
+* Renomear arquivo do analytics para evitar contagem no ambiente de desenvolvimento
+* [alwaysSendReferrer](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#alwaysSendReferrer) para o tracker global
+
+
 # 1.13.0
 
 * Adicionar tracker global ao snippet do Google Analytics
@@ -160,3 +166,4 @@
 ## Outros
 * atualizar senado.css para 1.5.0, que utiliza o tamanho padrão do viewport.
 * ajustes de compatibilidade com bootstrap 3.0.*
+
