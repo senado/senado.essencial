@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.14.0
+
+* Atualiza dependências vulneráveis
+* Remove dependência ao componente deAaZ, pois não está sendo utilizado
+* Atualiza dependências de build
+
 ## 1.13.1
 
 * Renomear arquivo do analytics para evitar contagem no ambiente de desenvolvimento
