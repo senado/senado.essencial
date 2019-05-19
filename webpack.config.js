@@ -22,10 +22,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.json', '.less'],
-    alias: {
-      deAaZdata: 'deaaz/app/modules/data.yaml'
-    }
+    extensions: ['.js', '.json', '.less']
   },
 
   module: {
