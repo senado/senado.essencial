@@ -47,7 +47,7 @@
     "yaml-loader": "^0.5.0"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "jquery": "^3.4.1",
     "senado.css": "git+https://github.com/fabianonunes/senado.css.git#2.11.0"
   }
