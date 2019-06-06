@@ -1,6 +1,6 @@
 {
   "name": "senado.essencial",
-  "version": "1.14.0",
+  "version": "1.14.1",
   "repository": "http://git.io/senado.essencial",
   "license": "MIT",
   "scripts": {
@@ -12,13 +12,13 @@
     "deploy": "npm run build && gh-pages -d build"
   },
   "devDependencies": {
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.0",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "expose-loader": "^0.7.5",
     "extract-loader": "^3.1.0",
-    "file-loader": "^3.0.1",
+    "file-loader": "^4.0.0",
     "gh-pages": "^2.0.1",
     "grunt": "^1.0.4",
     "grunt-banner": "^0.6.0",
@@ -41,9 +41,9 @@
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
     "superstatic": "^6.0.4",
-    "webpack": "^4.31.0",
+    "webpack": "^4.33.0",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1",
+    "webpack-dev-server": "^3.6.0",
     "yaml-loader": "^0.5.0"
   },
   "dependencies": {

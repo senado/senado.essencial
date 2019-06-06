@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.14.1
+
+* Atualiza dependências
+
 ## 1.14.0
 
 * Atualiza dependências vulneráveis
