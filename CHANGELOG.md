@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.14.2
+
+* Atualiza dependências
+
 ## 1.14.1
 
 * Atualiza dependências
