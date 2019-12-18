@@ -69,7 +69,8 @@ module.exports = {
       filename: 'thin.html'
     }),
     new CopyWebpackPlugin([
-      { from: 'src/js/analytics.prod.js' }
+      { from: 'src/js/analytics.prod.js' },
+      { from: 'src/assets/*', to: 'assets', flatten: true }
     ])
   ],
 
