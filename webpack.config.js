@@ -9,8 +9,7 @@ const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
 
   entry: {
-    // essencial: './src/js/essencial',
-    vendors: ['expose-loader?jQuery!jquery', 'bootstrap']
+    essencial: './src/js/essencial'
   },
 
   externals: {
