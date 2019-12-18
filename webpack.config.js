@@ -37,7 +37,7 @@ module.exports = {
           options: {
             sourceMap: true,
             plugins: () => [
-              autoprefixer({ browsers: 'last 2 versions' })
+              autoprefixer()
             ]
           }
         },
