@@ -70,7 +70,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'src/js/analytics.prod.js' },
-      { from: 'src/assets/*', to: 'assets', flatten: true }
+      { from: 'src/assets/*', to: 'assets', flatten: true },
+      { from: 'src/img/*', to: 'img', flatten: true }
     ])
   ],
 
