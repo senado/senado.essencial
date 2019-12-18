@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var HtmlPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
@@ -72,6 +73,18 @@ module.exports = {
       { from: 'src/js/analytics.prod.js' }
     ])
   ],
+
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: true,
+        extractComments: false,
+        terserOptions: {
+          output: { comments: /senado.essencial/ }
+        }
+      })
+    ]
+  },
 
   stats: { colors: true },
 
