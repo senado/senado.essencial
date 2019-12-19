@@ -1,4 +1,4 @@
-/* global MouseEvent, PUBLIC_PATH */
+/* global MouseEvent */
 import $script from 'scriptjs'
 import $ from 'jquery'
 
