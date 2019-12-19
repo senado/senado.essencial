@@ -59,9 +59,6 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].css' }),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(ENV)
-    }),
     new HtmlPlugin({
       template: './src/fat.pug',
       excludeChunks: ['thin'],
