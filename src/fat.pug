@@ -7,7 +7,6 @@ html(lang='pt')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no')
-    link(href=require('./styles/fat.less') rel='stylesheet')
 
     title
       - var version = require('../package.json').version
@@ -24,3 +23,5 @@ html(lang='pt')
           span.milli.text-muted  #{version}
 
     include pug/fat/footer-sem-ga
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")

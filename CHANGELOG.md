@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.0
+
+* Atualiza dependências
+* Lint
+* Adiciona módulo do vlibras
+* Configura otimizador de js para remover comentários
+* Utiliza arquivo browserslists para configurar o autoprefixer
+
 ## 1.14.3
 
 * Atualiza dependências
@@ -57,7 +65,7 @@
 * Renomear pasta less para styles
 * Renomear pasta jade para pug
 
-##1.10.1
+## 1.10.1
 
 * Corrigir exibição no thin.less da lista de páginas dos servidores
 
@@ -71,7 +79,7 @@
 * Padronizar subtítulo dos portais (.PortalTopo-sub)
 * Incluir arquivos na pasta iso-8859-1 do build
 * Fixar tamanho do sf-H1
-* [twbs2] Ajustar .sf-component e <body>
+* [twbs2] Ajustar .sf-component e `<body>`
 * [twbs2] Remover padding do body no viewport xs
 * [twbs2] Fix das margens do .container no viewport xs
 * [twbs2] Definir alturar inicial do .collapse em 0
