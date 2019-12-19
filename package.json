@@ -32,7 +32,7 @@
     "json-loader": "^0.5.7",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
-    "load-grunt-config": "^1.0.2",
+    "load-grunt-config": "^3.0.1",
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
