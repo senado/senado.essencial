@@ -16,8 +16,6 @@
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^6.0.3",
     "css-loader": "^3.0.0",
-    "expose-loader": "^0.7.5",
-    "extract-loader": "^3.1.0",
     "file-loader": "^5.0.2",
     "gh-pages": "^2.0.1",
     "grunt": "^1.0.4",
