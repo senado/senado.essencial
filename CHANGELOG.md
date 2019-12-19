@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.0
+
+* Atualiza dependências
+* Lint
+* Adiciona módulo do vlibras
+* Configura otimizador de js para remover comentários
+* Utiliza arquivo browserslists para configurar o autoprefixer
+
 ## 1.14.3
 
 * Atualiza dependências

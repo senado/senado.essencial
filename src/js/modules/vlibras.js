@@ -1,4 +1,4 @@
-/* global MouseEvent, PUBLIC_PATH */
+/* global MouseEvent */
 import $script from 'scriptjs'
 import $ from 'jquery'
 
@@ -28,7 +28,10 @@ export const initializeVLibras = _ => {
   `)
 
   $script(vlibrasScript, _ => {
-    const widget = new window.VLibras.Widget('https://vlibras.gov.br/app', '/assets/avatar.json')
+    const widget = new window.VLibras.Widget(
+      'https://vlibras.gov.br/app',
+      'https://www.senado.leg.br/inc/essencial/assets/avatar.json'
+    )
     window.onload()
     display()
     return widget
