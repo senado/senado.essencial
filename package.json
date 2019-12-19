@@ -42,9 +42,9 @@
     "stylelint-config-standard": "^19.0.0",
     "superstatic": "^6.0.4",
     "terser-webpack-plugin": "^2.3.1",
-    "webpack": "^4.34.0",
+    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.10.0",
+    "webpack-dev-server": "^3.10.1",
     "yaml-loader": "^0.5.0"
   },
   "dependencies": {
