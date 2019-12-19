@@ -4,12 +4,16 @@ var autoprefixer = require('autoprefixer')
 var HtmlPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin')
 
 const ENV = process.env.NODE_ENV || 'development'
 module.exports = {
 
   entry: {
-    essencial: './src/js/essencial'
+    essencial: './src/js/essencial',
+    thin: './src/styles/thin.less',
+    fat: './src/styles/fat.less'
   },
 
   externals: {
@@ -29,8 +33,7 @@ module.exports = {
     rules: [{
       test: /\.(less|css)$/,
       use: [
-        'file-loader?name=[name].css',
-        'extract-loader',
+        MiniCssExtractPlugin.loader,
         'css-loader?sourceMap',
         {
           loader: 'postcss-loader',
@@ -54,6 +57,7 @@ module.exports = {
   },
 
   plugins: [
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(ENV)
@@ -72,7 +76,8 @@ module.exports = {
       { from: 'src/js/analytics.prod.js' },
       { from: 'src/assets/*', to: 'assets', flatten: true },
       { from: 'src/img/*', to: 'img', flatten: true }
-    ])
+    ]),
+    new IgnoreEmitPlugin(/(fat|thin).js$/)
   ],
 
   optimization: {
